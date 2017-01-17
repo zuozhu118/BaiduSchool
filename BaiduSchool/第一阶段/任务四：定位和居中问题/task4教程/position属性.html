@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>position属性教程</title>
+    <style>
+        .box-set {
+            background: #e8eae9;
+            height: 300px;
+            position: relative;
+        }
+
+        .box {
+            background: #8ec63f;
+            height: 80px;
+            position: absolute;
+            width: 200px;
+        }
+
+        .box-1 {
+            top: 6%;
+            left: 2%;
+        }
+
+        .box-2 {
+            top: 0;
+            right: -40px;
+        }
+
+        .box-3 {
+            bottom: -10px;
+            right: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box-set">
+        <div class="box box-1">
+            Box 1<br />
+            top: 6%;
+            left: 2%;
+        </div>
+        <div class="box box-2">
+            Box 2<br />
+            top: 0;
+            right: -40px;
+        </div>
+        <div class="box box-3">
+            Box 3<br />
+            bottom: -10px;
+            right: 20px;
+        </div>
+    </div>
+</body>
+</html>
+
+
+<!--
+对于相对定位元素，这些属性的设置让元素从默认位置移动。
+例如，top设置一个值“20px”在一个相对定位的元素上，
+这个元素会在原来位置向下移动“20px”。反之，“top”设置一个“-20px”，
+这个元素会在原来的位置向上移动“20px”。
+-->
+
+<!--
+也就是说，相对定位元素的默认位置还是被元素自身占用，别的元素是无法占用的。也就是说相对定位元素的位移是相对于元素自身的边缘进行位移
+-->
+
+<!--绝对定位的参考点是其祖先元素设置了“relative”或者“absolute”值-->

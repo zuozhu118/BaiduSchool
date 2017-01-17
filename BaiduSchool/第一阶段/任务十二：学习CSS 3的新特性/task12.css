@@ -1,0 +1,77 @@
+﻿*
+{
+    padding: 0px;
+    margin: 0px;
+}
+
+body
+{
+    padding: 20px;
+    font-size: 14px;
+    font-family: "微软雅黑";
+    overflow:hidden;
+    min-width:500px;
+}
+
+.table
+{
+    display: table;
+    width: 500px;
+    line-height: 2;
+}
+
+    .table ul
+    {
+        display: table-row;
+        /*border: 1px solid;*/
+    }
+
+        .table ul li
+        {
+            display: table-cell;
+            /*border: 1px solid;*/
+        }
+
+.thead
+{
+    display: table-header-group;
+}
+
+.tbody
+{
+    display: table-row-group;
+}
+
+.thead li
+{
+    background: #000;
+    color: #fff;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.tbody ul:nth-child(2n) li/* 偶数行下的单元格 */
+{
+    background:#bbb;
+}
+.tbody ul:nth-child(2n+1) li/* 奇数行下的单元格 */
+{
+    background:#fff;
+}
+.tbody ul:nth-of-type(-n+3)
+{
+    color:red;
+}
+input
+{
+    border:1px solid;
+    line-height:1.5;
+    width:100px;
+    margin-top:50px;
+    transition:border 3s linear,width,3s linear;
+}
+    input:focus
+    {
+        border:1px solid red;
+        width:500px;
+    }

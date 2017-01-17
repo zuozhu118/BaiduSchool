@@ -1,0 +1,151 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Exercise: #3</title>
+    <style>
+    body {
+        height: 100vh;
+        background: #f5f5f5;
+        /*border:1px solid red;*/
+    }
+    
+    .container {
+        margin: 20px auto;
+        width: 50vw;
+        /*border:1px solid green;*/
+    }
+    
+    form {
+        background: #fefefe;
+        padding: 10px;
+        display: inline-block;
+        border-radius: 3px;
+        margin-bottom: 15px;
+    }
+    
+    form label {
+        cursor: pointer;
+    }
+    
+    form input {
+        border: 1px solid #ccc;
+        padding: 10px 15px;
+        border-radius: 4px;
+        background: #fff;
+        font-size: 14px;
+        color: #333;
+        margin: 0 5px;
+    }
+    
+    form input:focus {
+        border-color: rgba(37, 162, 222, 0.8);
+        box-shadow: 0 0 5px rgba(37, 162, 222, 0.5);
+        outline: none;
+    }
+    
+    form .btn {
+        border: 1px solid #1f93cb;
+        background: #1f93cb;
+        color: #fff;
+        padding: 10px 15px;
+        border-radius: 4px;
+        font-size: 14px;
+    }
+    
+    ul {
+        list-style: none outside none;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: start;
+        -webkit-justify-content: start;
+        -ms-flex-pack: start;
+        justify-content: start;
+        -webkit-flex-flow: wrap;
+        -ms-flex-flow: wrap;
+        flex-flow: wrap;
+        margin: 0;
+        padding: 0;
+    }
+    
+    ul li {
+        margin: 5px;
+        background: #3babe1;
+        color: #fff;
+        padding: 5px 8px 5px 5px;
+        font-size: 14px;
+        line-height: 1;
+        border-radius: 3px;
+        position: relative;
+        cursor: pointer;
+    }
+    
+    ul li:before {
+        content: '\2297';
+        font-size: 20px;
+        position: absolute;
+        font-family: Arial;
+        right: -8px;
+        top: -8px;
+        background: #3babe1;
+        line-height: 12px;
+        padding: 2px;
+        border-radius: 50%;
+        width: 14px;
+        height: 14px;
+        text-align: center;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <form class="add-item" method="post" action="#">
+            <label for="newitem">添加标签：</label> <!--for 属性规定 label 与哪个表单元素绑定。请把 "for" 属性的值设置为相关元素的 id 属性的值。-->
+            <input type="text" name="newitem" id="newitem" placeholder="添加需要的标签" required />  <!--required:带有必填字段的表单-->
+            <button type="submit" class="btn">添加</button>
+        </form>
+        <ul class="item" id="todolist">
+        </ul>
+    </div>
+<!--    大漠   ------------------------------------------------------------------------------------------------------------>
+    <script>
+        //现在，事件处理程序中的变量event保存着事件对象。而event.target属性保存着发生事件的目标元素。
+
+        (function () {
+            var todo = document.querySelector('#todolist');
+            var form = document.querySelector('.add-item');
+            var field = document.querySelector('#newitem');
+
+            form.addEventListener('submit', function (e) {
+                var text = field.value;
+                if (text !== '') {
+                    todo.innerHTML += '<li>' + text + '</li>';
+                    field.value = '';
+                    field.focus();
+                }
+                e.preventDefault();//preventDefault() 方法阻止元素发生默认的行为（例如，当点击提交按钮时阻止对表单的提交）。
+            }, false);
+
+            todo.addEventListener('click', function (e) {
+                var t = e.target; //target 属性规定哪个 DOM 元素触发了该事件。
+                if (t.tagName === 'LI') {
+                    t.parentNode.removeChild(t);
+                };
+                e.preventDefault();
+            }, false);
+
+        })();
+    </script>
+    
+
+<!--   二般人  2016/10/09---------------------------------------------------------------------------------------------------->
+    <script>    
+       
+    </script>
+</body>
+
+</html>

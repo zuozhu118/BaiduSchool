@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>基本动画太阳系</title>
+</head>
+<body>
+    <canvas id="myCanvas"  style="border:1px solid;" width="300" height="300">您的浏览器不支持canvas！
+    </canvas>
+    <script>
+        //动画的基本步骤
+
+        //你需要进行以下一些步骤来画出一帧：
+
+        //1、清空 canvas
+        //（除非接下来要画的内容会完全充满 canvas （例如背景图），否则你需要清空所有。最简单的做法就是用 clearRect 方法。）
+
+        //2、保存 canvas 状态
+        //（如果你要改变一些会改变 canvas 状态的设置（样式，变形之类的），又要在每画一帧之时都是原始状态的话，你需要先保存一下。）
+
+        //3、绘制动画图形（animated shapes）
+        //（这一步才是重绘动画帧。）
+
+        //4、恢复 canvas 状态
+        //（如果已经保存了 canvas 的状态，可以先恢复它，然后重绘下一帧。）
+
+
+
+
+
+        var sun = new Image();
+        var moon = new Image();
+        var earth = new Image();
+        function init() {
+            sun.src = 'https://mdn.mozillademos.org/files/1456/Canvas_sun.png';
+            moon.src = 'https://mdn.mozillademos.org/files/1443/Canvas_moon.png';
+            earth.src = 'https://mdn.mozillademos.org/files/1429/Canvas_earth.png';
+            window.requestAnimationFrame(draw);
+            //window.requestAnimationFrame(test);
+        }
+
+        //function test(timestamp) {
+        //    alert('执行动画' + timestamp);
+        //    window.requestAnimationFrame(test);
+        //}
+
+        function draw() {
+            var ctx = document.getElementById('myCanvas').getContext('2d');
+
+            ctx.globalCompositeOperation = 'destination-over';//会在原有内容之下绘制新图形。
+            ctx.clearRect(0, 0, 300, 300); // clear canvas,在给定矩形内清空一个矩形。
+
+            ctx.fillStyle = 'rgba(0,0,0,0.4)';
+            ctx.strokeStyle = 'rgba(0,153,255,0.4)';
+            ctx.save();
+            ctx.translate(150, 150);
+
+            // Earth
+            var time = new Date();
+            ctx.rotate(((2 * Math.PI) / 60) * time.getSeconds() + ((2 * Math.PI) / 60000) * time.getMilliseconds());
+            ctx.translate(105, 0);
+            ctx.fillRect(0, -12, 50, 24); // Shadow
+            ctx.drawImage(earth, -12, -12);
+
+            // Moon
+            ctx.save();
+            ctx.rotate(((2 * Math.PI) / 6) * time.getSeconds() + ((2 * Math.PI) / 6000) * time.getMilliseconds());
+            ctx.translate(0, 28.5);
+            ctx.drawImage(moon, -3.5, -3.5);
+            ctx.restore();
+
+            ctx.restore();
+
+            ctx.beginPath();
+            ctx.arc(150, 150, 105, 0, Math.PI * 2, false); // Earth orbit
+            ctx.stroke();
+
+            ctx.drawImage(sun, 0, 0, 300, 300);
+
+            window.requestAnimationFrame(draw);
+        }
+
+        init();
+    </script>          
+</body>
+</html>

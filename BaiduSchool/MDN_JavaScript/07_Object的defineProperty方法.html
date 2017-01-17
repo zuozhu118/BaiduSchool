@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>defineProperty</title>
+</head>
+<body>
+    <script>
+
+        //语法：Object.defineProperty(obj, prop, descriptor);
+        //Object.defineProperty()为对象的属性赋值时，数据描述符中的属性默认值都为false:
+        var oo = {};
+        Object.defineProperty(oo, "a", {
+            value: 1,
+            writable: false,
+            configurable: false,
+            enumerable: false
+        });
+
+
+        //1、Writable 属性:(如果该属性是用defineProperty方法定义的，默认是false);====================================================================
+        //当属性特性 writable 设置为false时，表示属性不能被修改。
+        var obj = {};
+        Object.defineProperty(obj, 'Name', { value: 'Alice', writable: false });
+        Object.defineProperty(obj, 'width', { value: '1920px', writable: false, enumerable: true });
+        console.log(obj.Name);//Alice
+        obj.Name = 'Oliver';
+        console.log(obj.Name);//Alice 赋值不起作用。
+
+
+        //2、属性特性 enumerable 定义了对象的属性是否可以在 for...in 循环和 Object.keys() 中被枚举。===================================================
+        //(如果该属性是用defineProperty方法定义的，默认是false);
+
+        //（1）for...in
+
+        //for...in循环遍历对象自身的和继承的可枚举属性（不含Symbol属性）。
+
+        //（2）Object.keys(obj)
+
+        //Object.keys返回一个数组，包括对象自身的（不含继承的）所有可枚举属性（不含Symbol属性）。
+
+        //（3）Object.getOwnPropertyNames(obj)
+
+        //Object.getOwnPropertyNames返回一个数组，包含对象自身的所有属性（不含Symbol属性，但是包括不可枚举属性）。
+        var obj2 = Object.create(obj);
+        Object.defineProperty(obj2, "age", { value: 23, enumerable: true });
+        Object.defineProperty(obj2, 'like', { value: 'Read' });//enumerable在defineProperty方法定义的属性中默认值是false;
+        Object.defineProperty(obj2, 'color', { value: 'orange', enumerable: false });
+        Object.defineProperty(obj2, 'price', { value: 10000, enumerable: true });
+        // for......in:
+        for (var pro in obj2) {
+            console.log(pro);
+            //age
+            //price
+            //width
+        }
+
+        //Object.keys(obj):
+        var keyPro = Object.keys(obj2);
+        console.log(keyPro);   //["age", "price"]
+
+        //Object.getOwnPropertyNames(obj);
+        var getOwnPro = Object.getOwnPropertyNames(obj2);
+        console.log(getOwnPro);  //["age", "like", "color", "price"]
+
+
+        //3、configurable 特性表示对象的属性是否可以被删除，以及除 writable 特性外的其他特性是否可以被修改。==================================================
+        var obj3 = {};
+
+        Object.defineProperty(obj3, "a", { value: 1, configurable: false });
+        //Object.defineProperty(obj3, "a", {enumerable  : true}); //TypeError: can't redefine non-configurable property "a"
+        //Object.defineProperty(obj3, "a", {value : 12});  //TypeError: can't redefine non-configurable property "a"
+        //Object.defineProperty(obj3, "a", {Writable : true}); //只有修改Writable，不会抛出异常；
+
+
+        //4、添加多个属性和默认值
+        var o = {};
+
+        o.a = 1;
+        // 等同于 :
+        Object.defineProperty(o, "a", {
+            value: 1,
+            writable: true,
+            configurable: true,
+            enumerable: true
+        });
+
+
+        // 另一方面，
+        Object.defineProperty(o, "a", { value: 1 });
+        // 等同于 :
+        Object.defineProperty(o, "a", {
+            value: 1,
+            writable: false,
+            configurable: false,
+            enumerable: false
+        });
+
+
+        //5、一般的 Setters 和 Getters
+        var pattern = {
+            get: function () {
+                return 'I alway return this string,whatever you have assigned';
+            },
+            set: function (Name) {
+                this.myname = Name;
+            }
+        };
+
+
+        function TestDefineSetAndGet() {
+            Object.defineProperty(this, 'myproperty', pattern);
+        }
+
+
+        var instance = new TestDefineSetAndGet();
+        instance.myproperty = 'test';
+
+        // 'I alway return this string,whatever you have assigned'
+        console.log(instance.myproperty);
+        // 'test'
+        console.log(instance.myname);
+    </script>
+</body>
+</html>

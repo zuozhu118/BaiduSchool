@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>六个子元素布局</title>
+    <style>
+        *
+        {
+            margin: 0;
+            padding: 0px;
+        }
+
+        ul
+        {
+            margin: 100px auto;
+            padding: 20px;
+            border: 1px solid red;
+        }
+
+        li
+        {
+            list-style: none;
+            border: 1px solid green;
+        }
+
+        .flex-container
+        {
+            display: flex;
+          
+            flex-flow: row wrap;
+     /*flex-flow,这个是“flex-direction”和“flex-wrap”属性的缩写版本；表示从左向右排列，伸缩容器多行显示*/
+     /*flex-flow默认值是“row nowrap”，表示从左向右单行显示*/
+            justify-content:space-between;
+            
+        }
+
+        .flex-item
+        {
+            width: 200px;
+            height: 150px;
+            line-height: 150px;
+            color: blue;
+            font-size: 3em;
+            text-align: center;
+        }
+        .item5
+        { 
+            /*order只在伸缩容器中有效*/
+            order:-1;
+            /*默认情况下，伸缩项目是按照文档流出现先后顺序排列。然而，“order”属性可以控制伸缩项目在他们的伸缩容器出现的顺序。*/
+        }
+    </style>
+</head>
+<body>
+    <ul class="flex-container">
+        <li class="flex-item item1">1</li>
+        <li class="flex-item item2">2</li>
+        <li class="flex-item item3">3</li>
+        <li class="flex-item item4">4</li>
+        <li class="flex-item item5">5</li>
+        <li class="flex-item item6">6</li>
+    </ul>
+</body>
+</html>

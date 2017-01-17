@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>a标签的取消默认行为</title>
+    <style>
+        .responsive
+        {
+            border: 1px solid red;
+            width:30vw;
+            height:30vh;
+            /*height: 30vmin;
+            width: 30vmin;*/
+            /*height: 30vmax;
+            width: 30vmax;*/
+            margin: 0 auto;
+            font-size: 2vw;
+        }
+
+            .responsive > p
+            {
+                border: 1px solid green;
+            }
+    </style>
+    <script src="../jquery-1.12.0.min.js"></script>
+    <script src="a标签取消跳转.js"></script>
+</head>
+<body>
+    <form action="/" method="post" name="form3">
+        <p>a标签的取消默认行为</p>
+        <a href="http://www.baidu.com/" onclick="return ff()" target="_blank">123</a>
+        <hr />
+        <a href="javascript:void(0)">Click here to do nothing</a><br />
+        <a href="javascript:void(document.form1.submit())">Click here to submit</a>
+        <hr />
+        <input type="text" name="text1" value="Beluga" /><br />
+        <input name="button1" type="button" value="Show Form Name" onclick="this.form.text1.value = this.form.name;" />
+    </form>
+    <div class="responsive">
+        <p>这是一个响应式的div</p>
+    </div>
+</body>
+</html>

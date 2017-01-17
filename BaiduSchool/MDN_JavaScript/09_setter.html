@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+</head>
+<body>
+    <script>
+        //set 语法可以将一个函数绑定在当前对象的指定属性上，当那个属性被赋值时，你所绑定的函数就会被调用。
+
+        //1、语法：
+        //{set prop(val) { . . . }}  
+        
+        //{set [expression](val) { . . . }}
+
+        //参数：
+        //prop
+        //将被指定函数绑定的属性名。
+        //val
+        //存有将要赋给 prop 的值的变量的代称。
+        //expression
+        //从 ECMAScript 6 开始，将被指定函数绑定的属性名可以是一个表达式。 
+
+
+        //使用 set 语法时请注意：
+        //它的标识符可以是 number 与 string 二者之一。
+        //它必须有一个明确的参数 。
+        //在同一个对象中，不能为一个已有真实值的变量使用 set ，也不能为一个属性设置多个 set。
+        //( { set x(v) { }, set x(v) { } } 和 { x: ..., set x(v) { } } 是不允许的 )
+
+        var obj = {
+            get Mywidth() {
+                if (typeof width==='undefined') {
+                    return 20;
+                }
+                return width;
+            },
+            set Mywidth(val) {
+                width = val * 3;
+            }
+        };
+        console.log(obj.Mywidth);  //20
+        obj.Mywidth = 30;
+        console.log(obj.Mywidth);  //90
+    </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+﻿* {
+    font-family: "微软雅黑";
+    font-size: 15px;
+}
+
+body {
+    padding: 20px;
+}
+
+img {
+    width: 80px;
+    height: 80px;
+}
+
+.container, .container > div {
+    border: 1px solid #999;
+    background: #eee;
+}
+
+.container {
+    overflow: auto;
+    padding: 20px;
+    min-width:600px;
+    overflow:auto;
+}
+
+    .container > div {
+        background: #fff none repeat scroll 0 0;
+    }
+
+.left {
+    width: 200px;
+    float: left;
+}
+
+.right {
+    width: 120px;
+    float: right;
+    /*border:1px solid red;*/
+}
+
+    .right img {
+        display: block;
+        margin: 20px;
+    }
+
+.middle {
+    margin-left: 220px;
+    margin-right: 140px;
+    /*position: absolute;*/
+    padding:20px;
+/*width:700px;*/
+
+}

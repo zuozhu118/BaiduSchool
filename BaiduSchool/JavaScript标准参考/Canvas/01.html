@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>myCanvas</title>
+</head>
+<body>
+    <canvas id="myCanvas"  style="border:1px solid;" width="300" height="300">您的浏览器不支持canvas！
+    </canvas>
+
+
+    <script>
+        var canvas = document.getElementById('myCanvas');
+
+        if (canvas.getContext) {
+            var ctx = canvas.getContext('2d');
+            ctx.beginPath(); // 开始路径绘制
+            ctx.moveTo(100, 20); // 设置路径起点，坐标为(20,20)
+            ctx.lineTo(100, 20); // 绘制一条到(200,20)的直线
+            ctx.lineTo(100, 60);
+            ctx.lineTo(60,60);
+            ctx.closePath();//closePath方法，自动形成一个封闭图形
+            ctx.lineWidth = 1.0; // 设置线宽
+            ctx.lineCap = "square"; //设置线条样式：'butt','round','square'；
+            ctx.strokeStyle = 'red'; // 设置线的颜色
+            ctx.stroke(); // 图形描边
+
+
+            //绘制矩形：fillRect四个参数分别为矩形左上角顶点的x坐标、y坐标，以及矩形的宽和高。fillStyle属性用来设置矩形的填充色。
+            //绘制一个填充的矩形----------
+            ctx.fillStyle = "green";
+            ctx.fillRect(10, 10, 60, 30);
+           
+            //绘制空心矩形：------------------------------------
+            ctx.strokeRect(100, 100,60, 30);
+
+            //ctx.clearRect(45, 45, 60, 60);
+
+        }
+
+    </script>
+</body>
+</html>

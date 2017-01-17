@@ -1,0 +1,57 @@
+﻿.aqi-chart-wrap
+{
+     border-radius: 15px;
+    box-shadow: 0 0 5px #999999;
+    height: 600px;
+    margin: 50px auto;
+    overflow: hidden;
+    position: relative;
+    width: 1200px;
+    display:flex;
+    justify-content:space-between;
+    /*border:1px solid red;*/
+    align-items:flex-end;
+}
+
+.title {
+    position: absolute;
+    text-align: center;
+    top: 10px;
+    width: 100%;
+}
+.aqi-bar {
+/*border:1px solid;*/
+width:6px;
+cursor:pointer;
+font-size:6px;
+position:relative;
+/*animation:Moveup 1s ease-in;*/  /*用js中的animate*/
+}
+/*@keyframes Moveup {
+    from {
+    height:0px;
+    }
+    to {
+    height:100%;
+    }
+}*/
+    .aqi-bar span
+    {
+        display:none;
+    }
+.aqi-hint {
+    /*border:1px solid red;
+    background-color: green;*/
+    border: 1px solid #16324a;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #dddddd;
+    /*display: none;*/
+    font-size: 0.75rem;
+    line-height: 20px;
+    opacity: 0.8;
+    position: absolute;
+    text-align: center;
+    width: 120px;
+    z-index: 999;
+    left:-60px;
+}

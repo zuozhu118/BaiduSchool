@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>渐变色</title>
+</head>
+<body>
+    <canvas id="myCanvas" style="border:1px solid;">您的浏览器不支持canvas！
+    </canvas>
+    <script>
+        var canvas = document.getElementById('myCanvas');
+        if (canvas.getContext) {
+            var ctx = canvas.getContext('2d');
+            //--就好像一般的绘图软件一样，我们可以用线性或者径向的渐变来填充或描边-----------
+
+            //createLinearGradient(x1, y1, x2, y2),表示渐变的起点 (x1,y1) 与终点 (x2,y2)。
+            //createRadialGradient(x1, y1, r1, x2, y2, r2),前三个定义一个以 (x1,y1) 为原点，半径为 r1 的圆，后三个参数则定义另一个以 (x2,y2) 为原点，半径为 r2 的圆。 
+
+            //addColorStop(position, color),position 参数必须是一个 0.0 与 1.0 之间的数值，表示渐变中颜色所在的相对位置。例如，0.5 表示颜色会出现在正中间。color 参数必须是一个有效的 CSS 颜色值
+
+            //-------------------------------------------------
+            ctx.beginPath();
+            ctx.moveTo(20, 20);
+            ctx.lineTo(200, 20);
+            ctx.lineWidth = '1';
+            var lineargradient = ctx.createLinearGradient(20, 20, 200, 20);//渐变色的起点和终点坐标
+
+            //设置渐变色中每种颜色所在的相对位置：
+            lineargradient.addColorStop(0, 'red');
+            lineargradient.addColorStop(0.5, 'green');
+            lineargradient.addColorStop(1, 'blue');
+            //设置边线渐变色
+            ctx.strokeStyle = lineargradient;
+            ctx.stroke();
+            //设置填充渐变色
+            ctx.fillStyle = lineargradient;
+            ctx.fillRect(10, 60, 200, 20);
+
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+﻿@charset "UTF-8";
+/*  sass --watch chong.scss:chngqing.css --style expanded  */
+.top {
+  height: 400px;
+  margin: 30px auto;
+  position: relative;
+  width: 980px;
+  background-color: #1e6ca8;
+  border: 1px solid red;
+}
+
+/*# sourceMappingURL=chongqing.css.map */

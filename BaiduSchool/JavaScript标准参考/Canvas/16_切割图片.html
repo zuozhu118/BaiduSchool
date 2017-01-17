@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>切片</title>
+</head>
+<body>
+    <canvas id="myCanvas" style="border: 1px solid;">您的浏览器不支持canvas！
+    </canvas>
+    <script>
+        var canvas = document.getElementById('myCanvas');
+        if (canvas.getContext) {
+            var ctx = canvas.getContext('2d');
+
+            var img = new Image();// document.getElementById('ImgID');
+            img.onload = function () {
+                canvas.width = img.width;
+                canvas.height = img.height;
+
+                //drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight);
+                //sx，sy表示源图像的坐标，sWidth, sHeight表示源图像的宽高，
+                //dx, dy,表示切割后的图片要显示的坐标位置，dWidth, dHeight表示切割后图片的宽高；
+                ctx.drawImage(img, 20, 0,160,160,10,0,160,160);
+
+            };
+            img.src = "../../images/member1.jpg";
+        }
+    </script>   
+</body>
+</html>

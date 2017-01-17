@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>banner幻灯片</title>
+    <style>
+        .banner
+        {
+            position: relative;
+            margin-top: 60px;
+             height:0;
+              padding-top:34%;
+            border: 3px solid blue;
+           
+        }
+            .banner ul
+            {
+                list-style: none;
+                /*border: 3px solid red;*/
+            }
+
+                .banner ul li
+                {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    opacity: 0;
+                    /*border: 2px solid green;*/
+                    transition: all linear 1s;
+                }
+
+            .banner img
+            {
+                max-width: 100%;
+            }
+        /*p
+        {
+            border:3px solid blue;
+        }*/
+    </style>
+</head>
+<body>
+    <div class="banner">
+        <ul>
+            <li>
+                <img src="img/banner0.jpg" />
+            </li>
+            <li>
+                <img src="img/banner1.jpg" /></li>
+            <li>
+                <img src="img/banner2.jpg" /></li>
+        </ul>
+    </div>
+    <!--  <p>这是banner后的内容</p>-->
+
+
+
+    <script type="text/javascript">
+        window.onload = function () {
+            var index = 0;
+            var aLi = document.getElementsByClassName('banner')[0].getElementsByTagName('li');
+            //在窗体加载好了之后动态创建好所有的图片：
+            UpLoadImg();
+            function UpLoadImg() {
+                for (var i = 0; i < aLi.length; i++) {
+                    let image = new Image();
+                    image.src = `img/banner${i}.jpg`;
+                    aLi[i].innerHTML="";
+                    aLi[i].appendChild(image);
+                }
+                //alert(i);
+            }
+            document.getElementsByClassName('banner')[0].getElementsByTagName('img')[2].onload=ImgLoaded();
+            function ImgLoaded(){
+                //alert('所有banner图片加载完毕---');
+                aLi[index].style.opacity =1;
+
+                //设置一个计时器，让当前li的透明度从1变到0，让下一个li的透明度从0变到1：
+                setInterval(function(){
+                
+                    aLi[index].style.opacity=0;
+                    if (index>=aLi.length-1) {
+                        index=-1;
+                    }
+                    aLi[index+1].style.opacity=1;
+                    index++;
+                
+                },6000);
+            }
+        };
+    </script>
+</body>
+</html>

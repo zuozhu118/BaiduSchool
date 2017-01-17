@@ -1,0 +1,380 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>07_MySelf</title>
+
+    <!--大漠 Style-->
+    <!--<style>
+    body {
+        height: 100vh;
+    }
+    
+    .sidebar {
+        border:1px solid green;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 300px;
+        overflow-y: auto;
+        background: #FAFAFC;
+        color: #333;
+        padding: 10px;
+    }
+    
+    ul {
+        list-style: none outside none;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .collapsed > ul {
+        display: none;
+    }
+    
+    .expanded > ul {
+        display: block;
+    }
+    
+    li {
+        margin: 0;
+        padding: 0 0 0 1.3em;
+        font-size: 14px;
+        white-space: nowrap;
+        position: relative;
+        line-height: 1.625;
+    }
+    
+    li.collapsed:before,
+    li.expanded:before {
+        content: '';
+        width: 6px;
+        height: 6px;
+        border: 1px solid red;
+        border-top: none;
+        border-left: none;
+        position: absolute;
+        transform-origin: center;
+    }
+    
+    li.collapsed:before {
+        transform: rotate(-45deg);
+        top: 7px;
+        left: 10px;
+    }
+    
+    li.expanded:before {
+        transform: rotate(45deg);
+        top: 5px;
+        left: 10px;
+    }
+    
+    li a {
+        cursor: pointer;
+        display: block;
+        padding: 0 0.5em;
+        text-decoration: none;
+        color: #333;
+    }
+    
+    li a.active {
+        background: #B03A5B;
+        color: #fff;
+    }
+    
+    li a:hover {
+        background: rgba(176, 59, 91, 0.25);
+        color: #000;
+    }
+    </style>-->
+
+
+    <!-- 二般人 Style 2016/10/10-->
+    <style>
+        a
+        {
+            cursor: pointer;
+            display: block;
+            padding: 0 1.3em;
+            text-decoration: none;
+            color: #333;
+        }
+
+            a:hover
+            {
+                background: rgba(176, 59, 91, 0.25);
+                color: #000;
+            }
+
+        ul
+        {
+            list-style: none;
+            overflow: auto;
+        }
+
+        body
+        {
+            margin: 0px;
+            padding: 20px;
+            height: 100vh;
+            border: 1px solid blue;
+        }
+
+        .sidebar
+        {
+            width: 300px;
+            border: 1px solid green;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .menu-tree
+        {
+            /*display:inline-block;*/
+            /*position:absolute;*/
+        }
+
+            .menu-tree li
+            {
+                /*border: 1px solid red;*/
+                /*padding: 0 0 0 1.3em;*/
+            }
+
+        .collapsed:before, .expanded:before
+        {
+            content: "";
+            cursor:pointer;
+            position: absolute;
+            color: red;
+            font-size: 28px;
+            line-height: 18px;
+
+        }
+
+        .collapsed:before
+        {
+            content: "+";
+        }
+
+        .expanded:before
+        {
+            content: "-";
+        }
+
+        .collapsed > ul
+        {
+            /*折叠*/
+            display: none;
+        }
+
+        .expanded > ul
+        {
+            /*展开*/
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="sidebar">
+        <ul class="menu-tree">
+            <li data-level="1" class="expanded">
+                <a href="javascript:void(0);">Level 1</a>
+                <ul class="menu-tree">
+                    <li data-level="2" class="collapsed">
+                        <a href="javascript:void(0);">Level 2</a>
+                        <ul class="menu-tree">
+                            <li data-level="3">
+                                <a href="javascript:void(0);">level 3</a>
+                            </li>
+                            <li data-level="3">
+                                <a href="javascript:void(0);">level 3</a>
+                            </li>
+                            <li data-level="3">
+                                <a href="javascript:void(0);">level 3</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li data-level="2" class="collapsed">
+                        <a href="javascript:void(0);">Level 2</a>
+                        <ul class="menu-tree">
+                            <li data-level="3">
+                                <a href="javascript:void(0);">level 3</a>
+                            </li>
+                            <li data-level="3">
+                                <a href="javascript:void(0);">level 3</a>
+                            </li>
+                            <li data-level="3">
+                                <a href="javascript:void(0);">level 3</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li data-level="2" class="collapsed">
+                        <a href="javascript:void(0);">Level 2</a>
+                        <ul class="menu-tree">
+                            <li data-level="3">
+                                <a href="javascript:void(0);">level 3</a>
+                            </li>
+                            <li data-level="3">
+                                <a href="javascript:void(0);">level 3</a>
+                            </li>
+                            <li data-level="3">
+                                <a href="javascript:void(0);">level 3</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+
+             <li data-level="1" class="collapsed">
+                <a href="javascript:void(0);">Level 1</a>
+                <ul class="menu-tree">
+                    <li data-level="2" class="collapsed">
+                        <a href="javascript:void(0);">Level 2</a>
+                        <ul class="menu-tree">
+                            <li data-level="3">
+                                <a href="javascript:void(0);">level 3</a>
+                            </li>
+                            <li data-level="3">
+                                <a href="javascript:void(0);">level 3</a>
+                            </li>
+                            <li data-level="3">
+                                <a href="javascript:void(0);">level 3</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li data-level="2" class="collapsed">
+                        <a href="javascript:void(0);">Level 2</a>
+                        <ul class="menu-tree">
+                            <li data-level="3">
+                                <a href="javascript:void(0);">level 3</a>
+                            </li>
+                            <li data-level="3">
+                                <a href="javascript:void(0);">level 3</a>
+                            </li>
+                            <li data-level="3">
+                                <a href="javascript:void(0);">level 3</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li data-level="2" class="collapsed">
+                        <a href="javascript:void(0);">Level 2</a>
+                        <ul class="menu-tree">
+                            <li data-level="3">
+                                <a href="javascript:void(0);">level 3</a>
+                            </li>
+                            <li data-level="3">
+                                <a href="javascript:void(0);">level 3</a>
+                            </li>
+                            <li data-level="3">
+                                <a href="javascript:void(0);">level 3</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li data-level="1" class="collapsed">
+                <a href="javascript:void(0);">Level 1</a>
+                <ul class="menu-tree">
+                    <li data-level="2" class="collapsed">
+                        <a href="javascript:void(0);">Level 2</a>
+                        <ul class="menu-tree">
+                            <li data-level="3">
+                                <a href="javascript:void(0);">level 3</a>
+                            </li>
+                            <li data-level="3">
+                                <a href="javascript:void(0);">level 3</a>
+                            </li>
+                            <li data-level="3">
+                                <a href="javascript:void(0);">level 3</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li data-level="2" class="collapsed">
+                        <a href="javascript:void(0);">Level 2</a>
+                        <ul class="menu-tree">
+                            <li data-level="3">
+                                <a href="javascript:void(0);">level 3</a>
+                            </li>
+                            <li data-level="3">
+                                <a href="javascript:void(0);">level 3</a>
+                            </li>
+                            <li data-level="3">
+                                <a href="javascript:void(0);">level 3</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li data-level="2" class="collapsed">
+                        <a href="javascript:void(0);">Level 2</a>
+                        <ul class="menu-tree">
+                            <li data-level="3">
+                                <a href="javascript:void(0);">level 3</a>
+                            </li>
+                            <li data-level="3">
+                                <a href="javascript:void(0);">level 3</a>
+                            </li>
+                            <li data-level="3">
+                                <a href="javascript:void(0);">level 3</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <!--大漠 Script-->
+    <script>
+        //(function () {
+        //    var eleList = document.querySelectorAll("li > a");
+        //    for (var i = 0; i < eleList.length; i++) {
+        //        eleList[i].addEventListener("click", function () {
+        //            var hasClass = this.parentNode.classList.contains('collapsed');
+        //            var hasUlEle = this.parentNode.getElementsByTagName('ul').length > 0;
+        //            if (hasUlEle) {
+        //                console.log(hasUlEle);
+        //                if (!hasClass) {
+        //                    this.parentNode.classList.add('collapsed');
+        //                    this.parentNode.classList.remove('expanded');
+        //                } else {
+        //                    this.parentNode.classList.remove('collapsed');
+        //                    this.parentNode.classList.add('expanded');
+        //                }
+        //            }
+        //            return false;
+        //        });
+        //    }
+        //})();
+    </script>
+
+
+    <!--二般人 Script 2016/10/10-->
+    <script>
+        (function () {
+            var AElelist = document.querySelectorAll('a');
+            for (var i = 0; i < AElelist.length; i++) {
+                AElelist[i].addEventListener("click", function (e) {
+                    //alert("sss");
+                    var todo = e.target;// todo就是我们当前点击的a标签，也就是this;
+
+                    var hasClass = todo.parentNode.getAttribute("class");
+                    if (hasClass == "expanded") {
+                        todo.parentNode.classList.remove('expanded');
+                        todo.parentNode.classList.add('collapsed');
+                    }
+                    else if (hasClass == "collapsed") {
+                        todo.parentNode.classList.remove('collapsed');
+                        todo.parentNode.classList.add('expanded');
+                    }
+                    return;
+                });
+                
+            }
+
+        })();
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>canvas填充</title>
+</head>
+<body>
+     <canvas id="myCanvas" style="border:1px solid;">您的浏览器不支持canvas！
+    </canvas>
+    <script>
+        var canvas = document.getElementById('myCanvas');
+        if (canvas.getContext) {
+            var ctx = canvas.getContext('2d');
+            ctx.beginPath();
+            ctx.arc(50, 50, 30, 0, Math.PI * 2, true);
+            ctx.arc(50, 50, 15, 0, Math.PI * 2, true);
+            ctx.fillRect(50,50,30,30);
+            ctx.fillStyle = "red";
+            ctx.fill("evenodd"); //"nonzero"(默认),"evenodd"
+
+        }
+
+    </script>
+</body>
+</html>

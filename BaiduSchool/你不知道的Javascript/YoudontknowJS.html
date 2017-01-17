@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>YouDontKnowJS</title>
+    <script src="YouDontKnowJS.js"></script>
+</head>
+<body>
+    <div class="banner">
+        <!--<img src="../幻灯片/img/banner0.jpg" />-->
+    </div>
+   <!-- <script>
+        //下面是异步加载图片的例子:
+        function loadImageAsync(url) {
+            return new Promise(function (resolve, reject) {
+                var image = new Image();
+
+                image.onload = function () {
+                    resolve(image);
+                };
+
+                image.onerror = function () {
+                    reject(new Error('Could not load image at ' + url));
+                };
+
+                image.src = url;
+            });
+        }
+        var p = loadImageAsync("../幻灯片/img/banner0.jpg");
+        var banner=document.getElementsByClassName('banner')[0];
+        p.then(function (img) {
+            //console.log(img);
+            banner.innerHTML = "";
+            banner.appendChild(img);
+        });
+
+    </script>-->
+</body>
+</html>

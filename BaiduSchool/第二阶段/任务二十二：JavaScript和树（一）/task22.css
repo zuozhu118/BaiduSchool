@@ -1,0 +1,36 @@
+﻿*
+{
+    margin:0px;
+    padding:20px;
+}
+div
+{
+  display:flex;
+   justify-content: space-between;
+}
+.root
+{
+    margin:100px auto;
+    border:1px solid;
+    width:1000px;
+    height:300px;
+    
+}
+.child1
+{
+    border:1px solid red;
+    height:260px;
+    width:450px;
+}
+.child2
+{
+    border:1px solid green;
+    height:220px;
+    width:175px;
+}
+.child3
+{
+    border:1px solid blue;
+    height:180px;
+    width:35px;
+}

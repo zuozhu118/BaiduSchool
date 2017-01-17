@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>模板字符串 </title>
+    <script src="../../jquery-1.12.0.min.js"></script>
+    <style>
+        div
+        {
+            border: 1px solid;
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+            margin-bottom: 20px;
+        }
+        .boxul
+        {
+            list-style:none;
+        }
+    </style>
+</head>
+<body>
+    <div id="result">
+    </div>
+    <div id="list"></div>
+    <div id="box"></div>
+<!--    <ul>
+        <li>这是li列表一</li>
+        <li>这是li列表二</li>
+        <li>这是li列表三</li>
+    </ul>-->
+    <script>
+        var basket = {
+            count: 6,
+            onSale:200
+        };
+        //$('#result').append(
+        //  'There are <b>' + basket.count + '</b> ' +
+        //  'items in your basket, ' +
+        //  '<em>' + basket.onSale +
+        //  '</em> are on sale!');
+
+        //--------------上面这种写法相当繁琐不方便，ES6引入了模板字符串解决这个问题:
+
+        //----------模板字符串的大括号${}内部，就是执行JavaScript代码
+        $('#result').append(`There are <b>${basket.count}</b> items in your basket, <em>${basket.onSale}</em> are on sale! `);
+        
+        $('#list').html(`
+            <ul>
+        <li>这是li列表的值${basket.count}</li>
+         <li>这是一个<h2>li</h2>列表二</li>
+         <li>这是li列表三</li>
+    </ul>
+            `);
+
+        var arry=[12,"sdfg",true,3.14,{obj:"hello",age:23}];
+        $('#box').html(`
+            <ul class=boxul>
+           <li>${arry[0]}</li>
+            </ul>
+            `);
+
+    </script>
+</body>
+</html>

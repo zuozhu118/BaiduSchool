@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>myCanvas3</title>
+</head>
+<body>
+     <canvas id="myCanvas" style="border:1px solid;">您的浏览器不支持canvas！
+    </canvas>
+
+    <script>
+        var canvas = document.getElementById('myCanvas');
+
+        if (canvas.getContext) {
+            var ctx = canvas.getContext('2d');
+            //绘制圆形和扇形：---------------------------------
+            //ctx.arc(x, y, radius, startAngle, endAngle, anticlockwise);
+            //arc方法的x和y参数是圆心坐标，radius是半径，startAngle和endAngle则是扇形的起始角度和终止角度（以弧度表示），
+            //anticlockwise表示做图时应该逆时针画（true）还是顺时针画（false）。
+
+            ctx.arc(60, 60, 20, 0, Math.PI * 2, true);
+            ctx.fillStyle = "green";
+            ctx.fill();//填充实心圆
+
+            //绘制空心圆形的例子。
+            ctx.beginPath();
+            ctx.arc(60, 60, 30, 0, Math.PI * 2, true);//2PI表示360度；
+            ctx.lineWidth = 3.0;//线宽
+            ctx.strokeStyle = "red";
+            ctx.stroke();
+
+
+        }
+
+    </script>
+</body>
+</html>

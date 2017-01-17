@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Path2D 对象</title>
+</head>
+<body>
+    <canvas id="myCanvas" style="border:1px solid;">您的浏览器不支持canvas！
+    </canvas>
+    <script>
+        var canvas = document.getElementById('myCanvas');
+        if (canvas.getContext) {
+            var ctx = canvas.getContext('2d');
+            //我们创造了一个矩形和一个圆。它们都被存为Path2D对象
+            var circle = new Path2D();
+            circle.arc(100, 35, 25, 0, 2 * Math.PI);
+            ctx.strokeStyle = "red";
+            ctx.stroke(circle);//带路径参数的stroke和fill可以把对象画在画布上。
+
+            var rectangle = new Path2D();
+            
+            rectangle.rect(100, 100, 30, 20);
+
+            ctx.fillStyle = "green";
+            ctx.fill(rectangle);
+        }
+    </script>
+</body>
+</html>

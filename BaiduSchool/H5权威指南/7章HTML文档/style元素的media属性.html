@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>使用style元素的media属性</title>
+    <style type="text/css"> 
+        .mediadiv
+        {
+            border:3px solid orange;
+            width:800px;
+            height:800px;
+            margin:auto;
+        }
+
+    </style>
+    <style media="all and (max-width:600px)" type="text/css">
+        .mediadiv
+        {
+            border:3px solid red;
+            width:300px;
+            height:300px;
+        }
+    </style>
+
+    <style media="all and (max-width:900px) and (min-width:600px)" type="text/css">
+        .mediadiv
+        {
+            border:3px solid green;
+            width:500px;
+            height:500px;
+        }
+    </style>
+</head>
+<body>
+    <div class="mediadiv">这是一个在不同窗口宽度下，显示不同样式的div</div>
+</body>
+</html>

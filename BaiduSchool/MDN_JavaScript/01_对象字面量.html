@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>对象字面量</title>
+</head>
+<body>
+    <script>
+        var obj = { name: "佐助", "age": 22, 6: '牛', false: '男'};
+        console.log(obj.name);//佐助
+        console.log(obj[name]);//undefined
+        console.log(obj['name']);//佐助
+        //console.log(obj.6);//SyntaxError: missing ) after argument list
+        console.log(obj[6]);//牛
+        console.log(obj['6']);//牛
+        //------------------------------
+        var obj2 = {work:'工程师',8:'违法',handle,toString(){
+           alert('这是toString方法');
+        },
+             footbal:'足球'
+        };
+
+        function handle(){
+            alert('handle方法');
+        }
+        obj2.handle();
+        obj2.toString();
+        console.log(obj2[8]);
+    </script>
+</body>
+</html>

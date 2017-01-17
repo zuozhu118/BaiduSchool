@@ -1,0 +1,257 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>移动效果（按轨迹移动）</title>
+    <style type="text/css">
+        body,
+        div
+        {
+            margin: 0;
+            padding: 0;
+        }
+
+        div
+        {
+            position: absolute;
+            width: 66px;
+            height: 45px;
+            background: url(../../../src/images/1.gif) no-repeat;
+            top: 100px;
+            left: 50px;
+            border: 1px solid red;
+        }
+
+        p,
+        input
+        {
+            margin: 10px;
+        }
+    </style>
+
+    <!--大漠-->
+    <!--<script type="text/javascript">
+        window.onload = function () {
+            var oDiv = document.getElementsByTagName("div")[0];
+            var aInput = document.getElementsByTagName("input");
+            var oP = document.getElementsByTagName("p")[0];
+            var i = 0;
+
+            aInput[0].onclick = function (event) {
+                //alert("鼠标点击移动");
+                (event || window.event).cancelBubble = true; //cancelBubble阻止事件冒泡；
+                clearEvent();
+                this.value += "(已激活)";
+                oP.innerHTML = "鼠标点击页面， 人物将移动至鼠标位置！";
+                document.onclick = function (event) {
+                    var event = event || window.event;
+                    oDiv.style.background = "url(../../../src/images/2.gif) no-repeat";
+                    startMove(oDiv, {
+                        x: event.clientX,
+                        y: event.clientY
+                    }, function () {
+                        oDiv.style.background = "url(../../../src/images/1.gif) no-repeat"
+                    });
+                    return false;
+                }
+            };
+
+            aInput[1].onclick = function (event) {
+                (event || window.event).cancelBubble = true;
+                clearEvent();
+                this.value += "(已激活)";
+                oP.innerHTML = "按住鼠标左键，在页面划动，人物将按照鼠标轨迹移动。"
+
+                //把所有的鼠标的坐标放到aPos数组中；
+                var aPos = [{
+                    x: oDiv.offsetLeft,
+                    y: oDiv.offsetTop
+                }];
+                document.onmousedown = function (event) {
+                    //alert("鼠标按下了啦");
+                    var event = event || window.event;
+                    aPos.push({
+                        x: event.clientX,
+                        y: event.clientY
+                    });
+                    document.onmousemove = function (event) {
+                        //alert("鼠标按下开始移动");
+                        var event = event || window.event;
+                        aPos.push({
+                            x: event.clientX,
+                            y: event.clientY
+                        });
+                        return false;
+                    }
+                    return false;
+                }
+                document.onmouseup = function () {
+                    document.onmousemove = null;
+                    oDiv.style.background = "url(../../../src/images/2.gif) no-repeat";
+                    var timer = setInterval(function () {
+                        if (aPos.length == 0) {
+                            clearInterval(timer);
+                            oDiv.style.background = "url(../../../src/images/1.gif) no-repeat";
+                            return;
+                        };
+                        oDiv.style.left = aPos[0].x + "px";//oDiv.style.left每次取aPos数组的第一个值，取完了之后，用shift()方法又把第一个值干掉，重新获取新的数组；
+                        oDiv.style.top = aPos[0].y + "px";
+                        aPos.shift();
+                        //shift() 方法用于把数组的第一个元素从其中删除，并返回第一个元素的值，该方法不创建新数组，而是直接修改原有的数组。
+                    }, 30);
+                };
+            }
+
+            function clearEvent() {
+                document.onclick = null;
+                document.onmousedown = null;
+                document.onmousemove = null;
+                document.onmouseup = null;
+                for (i = 0; i < aInput.length; i++) {
+                    aInput[i].value = aInput[i].value.replace("(已激活)", "");
+                    aInput[i].onmousedown = aInput[i].onmouseup = function (event) {
+                        (event || window.event).cancelBubble = true;
+                    };
+                }
+            }
+        };
+
+        function startMove(obj, oTarget, fnEnd) {
+            clearInterval(obj.timer);
+            obj.timer = setInterval(function () {
+                doMove(obj, oTarget, fnEnd);
+            }, 30);
+        }
+        //obj表示oDiv,oTarget表示鼠标对象，fnEnd方法设置oDiv背景样式；
+        function doMove(obj, oTarget, fnEnd) {
+            //iX表示oDiv向鼠标点击位置每次移动的距离，分为5次从当前位置移动到鼠标点击的位置处；
+            var iX = (oTarget.x - obj.offsetLeft) / 5;
+            var iY = (oTarget.y - obj.offsetTop) / 5;
+            iX = iX > 0 ? Math.ceil(iX) : Math.floor(iX);//math.ceil(x)返回大于参数x的最小整数,即对浮点数向上取整
+            iY = iY > 0 ? Math.ceil(iY) : Math.floor(iY);//math.floor(x)返回小于参数x的最大整数,即对浮点数向下取整
+            if (oTarget.x == obj.offsetLeft && oTarget.y == obj.offsetTop) {
+                //alert("用户点击的是当前的点");
+                clearInterval(obj.timer);
+                fnEnd && fnEnd();
+            } else {
+                obj.style.left = obj.offsetLeft + iX + "px";
+                obj.style.top = obj.offsetTop + iY + "px";
+            }
+        }
+    </script>-->
+
+
+    <!--二般人   2016/10/20-->
+    <script type="text/javascript">
+        window.onload = function () {
+            var oDiv = document.getElementsByTagName("div")[0];
+            var aInput = document.getElementsByTagName("input");
+            var oP = document.getElementsByTagName("p")[0];
+            var clickkey = 0;
+
+            aInput[0].onclick = function (event) {
+                (event || window.event).cancelBubble = true; //cancelBubble阻止事件冒泡：阻止点击aInput[0]时，触发body的点击事件；
+                clickkey = 1;
+                ClearEvent();
+                //this.value = "根据鼠标点击位置移动(已激活)";
+                this.value +="(已激活)";
+                oP.innerHTML = "鼠标点击页面， 人物将移动至鼠标位置！";
+
+
+                //注册body的点击事件：
+                var timer = 0;
+                document.documentElement.onclick = function (event) {
+                    clearInterval(timer);
+                    var event = event || window.event;
+                    var mouseX = event.clientX;
+                    var mouseY = event.clientY;
+                    timer = setInterval(function () {
+                        //alert(mouseX + ",    " + mouseY);
+                        //iX表示oDiv向鼠标点击位置每次横向移动的距离，分为5次从当前位置移动到鼠标点击的位置处；
+                        var iX = (mouseX - oDiv.offsetLeft) / 5;
+                        var iY = (mouseY - oDiv.offsetTop) / 5;
+                        iX = iX > 0 ? Math.ceil(iX) : Math.floor(iX);//math.ceil(x)返回大于参数x的最小整数,即对浮点数向上取整；
+                        iY = iY > 0 ? Math.ceil(iY) : Math.floor(iY);//math.floor(x)返回小于参数x的最大整数,即对浮点数向下取整；
+                        //eg:Math.floor(-5.1)=-6;
+
+                        oDiv.style.left = oDiv.offsetLeft + iX + 'px';
+                        oDiv.style.top = oDiv.offsetTop + iY + 'px';
+                        if (mouseX == oDiv.offsetLeft && mouseY == oDiv.offsetTop) {
+                            clearInterval(timer);
+                        }
+                    }, 30);
+
+                };
+            };
+
+            aInput[1].onclick = function (event) {
+                (event = event || window.event).cancelBubble = true;
+                //aInput[0].onclick = null;
+                clickkey = 2;
+                ClearEvent();
+               
+                //this.value = "根据鼠标轨迹移动(已激活)";
+                this.value += "(已激活)";
+                oP.innerHTML = "按住鼠标左键，在页面划动，人物将按照鼠标轨迹移动。"
+                var aPos = [];
+                document.onmousedown = function (event) {
+                    var event = event || window.event;
+                    //当鼠标按下，让oDiv处于鼠标点击的位置：
+                    var mouseX = event.clientX;
+                    var mouseY = event.clientY;
+                    aPos.push({ x: mouseX, y: mouseY });
+
+                    document.onmousemove = function (event) {
+                        var event = event || window.event;
+                        aPos.push({
+                            x: event.clientX,
+                            y: event.clientY
+                        });
+                        return false;
+                    };
+                    return false;
+                };
+
+                document.onmouseup = function (event) {
+                    document.onmousemove = null;//结束onmousemove方法；
+                    //alert("鼠标按起，结束了鼠标移动方法");
+                    var time = setInterval(function () {
+                        if (aPos.length == 0) {
+                            clearInterval(time);
+                            return;
+                        };
+                        oDiv.style.left = aPos[0].x + 'px';//oDiv.style.left每次取aPos数组的第一个值，取完了之后，用shift()方法又把第一个值干掉，重新获取新的数组；
+                        oDiv.style.top = aPos[0].y + 'px';
+                        aPos.shift();//shift() 方法用于把数组的第一个元素从其中删除，并返回第一个元素的值，该方法不创建新数组，而是直接修改原有的数组。
+                   }, 30);
+                   return false;
+                };
+            };
+
+            function ClearEvent(event) {
+                //click 事件在用户点击了一个元素时调用。 click 事件发生在 mousedown 和 mouseup 事件之后。
+                document.onclick = null;
+                document.onmousedown = null;
+                document.onmousemove = null;
+                document.onmouseup = null;
+                for (i = 0; i < aInput.length; i++) {
+                    aInput[i].value = aInput[i].value.replace("(已激活)", "");
+                    //取消冒泡：-----
+                    aInput[i].onmousedown = aInput[i].onmouseup = function (event) {
+                        (event || window.event).cancelBubble = true;
+                    };
+                }
+            }
+        };
+    </script>
+</head>
+
+<body>
+    <input type="button" value="根据鼠标点击位置移动" />
+    <input type="button" value="根据标鼠标轨迹移动" />
+    <p>请点击按钮激活功能！</p>
+    <div></div>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>save和restore </title>
+</head>
+<body>
+    <canvas id="myCanvas" style="border: 1px solid;">您的浏览器不支持canvas！
+    </canvas>
+    <script>
+       //save保存到栈中的状态有下面几种： 
+        //1、当前的变换矩阵。
+        //2、当前的剪切区域。
+        //3、当前的虚线列表.
+        //4、以下属性当前的值： strokeStyle, fillStyle, globalAlpha, lineWidth, lineCap, lineJoin, miterLimit, lineDashOffset, shadowOffsetX, shadowOffsetY, shadowBlur, shadowColor, globalCompositeOperation, font, textAlign, textBaseline, direction, imageSmoothingEnabled.
+
+        //sava方法保存当前状态，
+        //restore方法手动恢复到保存之前的状态；
+        
+        var canvas = document.getElementById("myCanvas");
+        var ctx = canvas.getContext("2d");
+        ctx.fillStyle = "red";
+        ctx.save(); // 保存红色的填充色状态
+
+        ctx.fillStyle = "green";
+        ctx.fillRect(60, 30, 80, 80);
+       
+        ctx.restore(); // 还原到上次保存的默认状态(上次保存的状态是红色的填充色），如果没有
+
+        ctx.fillRect(150, 30, 80, 80);//画出来的图形会是红色，还是绿色呢？
+    </script>   
+</body>
+</html>

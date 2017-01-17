@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+</head>
+<body>
+    <script>
+        //1、遍历数组：
+        //forEach() 方法提供了遍历数组元素的其他方法：
+
+        var colors = ['red', 'green', 'blue'];
+        colors.forEach(function(color) {
+            console.log(color);
+        });
+
+        //2、数组的方法：
+        //join, 将数组的所有元素连接成一个字符串。
+
+        var myArray = new Array("Wind", "Rain", "Fire");
+        var list = myArray.join(" - ");
+
+        //push() 在数组末尾添加一个或多个元素，并返回数组操作后的长度。
+        var myArray = new Array("1", "2");
+        myArray.push("3");
+
+        //pop() 从数组移出最后一个元素，并返回该元素
+        var myArray = new Array("1", "2", "3");
+        var last = myArray.pop();
+
+        //shift() 从数组移出第一个元素，并返回该元素。
+        var myArray = new Array("1", "2", "3");
+        var first = myArray.shift();
+
+        //slice(start_index, upto_index) 从数组提取一个片段，并作为一个新数组返回。
+        var myArray = new Array("a", "b", "c", "d", "e");
+        myArray = myArray.slice(1, 4);
+
+        //map(callback[, thisObject]) 在数组的每个单元项上执行callback函数，并把返回包含回调函数返回值的新数组
+        var a1 = ['a', 'b', 'c'];
+        var a2 = a1.map(function (item) { return item.toUpperCase(); });
+        console.log(a2); // logs A,B,C
+
+        //filter(callback[, thisObject]),过滤函数；callback在这里担任的是过滤器的角色，当元素符合条件，过滤器就返回true，而filter则会返回所有符合过滤条件的元素。
+        var a1 = ['a', 10, 'b', 20, 'c', 30];
+        var a2 = a1.filter(function (item) { return typeof item == 'number'; });
+        //用箭头函数表示：
+        //var a2 =a1.filter(c=>typeof c =="number");
+        console.log(a2); // logs 10,20,30
+
+        
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>跳动的小球</title>
+</head>
+<body>
+    <canvas id="myCanvas" style="border: 1px solid;">您的浏览器不支持canvas！
+    </canvas>
+    <script>
+        var canvas = document.getElementById('myCanvas');
+        if (canvas.getContext) {
+            var context = canvas.getContext('2d');
+
+            //posX,posY表示小球的横纵坐标；
+            var posX = 0, posY =100;
+            var vx =6,vy = -10,gravity = 1;
+            setInterval(function () {
+                context.fillStyle = "black";
+                //alert(canvas.width + ',   ' + canvas.height);
+                context.fillRect(0, 0, canvas.width, canvas.height);
+
+                posX += vx;
+                posY += vy;
+                if (posY > canvas.height * 0.75) {
+                    vy *= -0.6;
+                    vx *= 0.75;
+                    posY = canvas.height * 0.75;
+                }
+                vy += gravity;
+
+                context.beginPath();
+                context.fillStyle = "green";
+
+                context.arc(posX, posY, 6, 0, Math.PI * 2, true);
+                //context.closePath();
+                context.fill();
+            }, 30);
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>AJAX处理XML响应</title>
+</head>
+<body>
+    <script type="text/javascript">
+
+        var http_request = false;
+
+        function makeRequest(url) {
+
+            http_request = false;
+            //1，创建一个用JavaScript向服务器发送请求的类实例对象http_request；
+            if (window.XMLHttpRequest) { // Mozilla, Safari,...
+                http_request = new XMLHttpRequest();
+                //如果服务器的响应没有XML mime-type header,某些Mozilla浏览器可能无法正常工作.
+                //为了解决这个问题, 如果服务器响应的header不是text/xml,可以调用其它方法修改该header.
+                if (http_request.overrideMimeType) {
+                    http_request.overrideMimeType('text/xml');
+                }
+            }
+            else if (window.ActiveXObject) { // IE
+                http_request = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+
+            if (!http_request) {
+                alert('Giving up :( Cannot create an XMLHTTP instance');
+                return false;
+            }
+            //2,接下来要决定当收到服务器的响应后,需要做什么.这需要告诉HTTP请求对象用哪一个JavaScript函数处理这个响应.
+            //可以将对象的onreadystatechange属性设置为要使用的JavaScript的函数名,
+
+            http_request.onreadystatechange = alertContents;//当收到服务器响应后，执行alertContents方法；
+
+            //3,在定义了如何处理响应后,就要发送请求了.可以调用HTTP请求类的open()和send()方法,如下所示:
+
+            //open()的第一个参数是HTTP请求方式 – GET, POST, HEAD 或任何服务器所支持的您想调用的方式.
+            //第二个参数是请求页面的URL.
+            //第三个参数设置请求是否为异步模式.如果是TRUE, JavaScript函数将继续执行,而不等待服务器响应.这就是"AJAX"中的"A"
+            http_request.open('GET', url, true);
+
+            //如果第一个参数是"POST",send()方法的参数可以是任何想送给服务器的数据. 这时数据要以字符串的形式送给服务器,如下所示:name=value&anothername=othervalue&so=on
+            http_request.send(null);
+
+        }
+
+        function alertContents() {
+            if (http_request.readyState == 4) {
+                if (http_request.status == 200) {
+                    var xmldoc = http_request.responseXML;
+                    var root_node = xmldoc.getElementsByTagName('root').item(0);
+                    alert(root_node.firstChild.data);
+                } else {
+                    alert('There was a problem with the request.');
+                }
+            }
+
+        }
+    </script>
+    <span
+        style="cursor: pointer; text-decoration: underline"
+        onclick="makeRequest('test.xml')">Make a request
+    </span>
+</body>
+</html>

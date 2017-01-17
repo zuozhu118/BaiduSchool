@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>rotate</title>
+</head>
+<body>
+     <canvas id="Canvas" width="300" height="300"  style="border:1px solid;" >您的浏览器不支持canvas！
+    </canvas>
+    <script>
+        // rotate 方法，它用于以原点为中心旋转 canvas。(rotate是旋转整个canvas)
+        
+        //rotate(angle)
+        //这个方法只接受一个参数：旋转的角度(angle)，它是顺时针方向的，以弧度为单位的值。
+
+        //旋转的中心点始终是 canvas 的原点，如果要改变它，我们需要用到 translate 方法。
+
+        var ctx = document.getElementById('Canvas').getContext('2d');
+        ctx.translate(150, 150);
+
+        //--------测试----
+        //ctx.rotate(Math.PI * 2 /8);//将canvas顺时针旋转45度；
+        //ctx.strokeRect(0, 0, 60, 20);
+        //ctx.arc(0, 0, 20, 0, Math.PI * 2);
+        //ctx.stroke();
+        //----------------
+        
+        for (var i = 0; i < 6; i++) {
+            ctx.strokeStyle = 'rgb(' + (51 * i) + ',' + (255 - 51 * i) + ',255)';
+
+            ctx.rotate(Math.PI * 2 /6);//因为没有保存，所以每次都是直接在前面的一个的基础上旋转(Math.PI * 2 / 6)度；
+
+            for (var j = 0; j < 4; j++) {
+                ctx.save();
+                ctx.beginPath();
+                ctx.arc(j * 30, 0, 5, 0, Math.PI * 2);
+                ctx.stroke();
+                ctx.restore();
+            }
+        }
+
+    </script>
+</body>
+</html>

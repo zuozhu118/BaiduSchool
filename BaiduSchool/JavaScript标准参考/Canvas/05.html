@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>设置阴影</title>
+</head>
+<body>
+     <canvas id="myCanvas" style="border:1px solid;">您的浏览器不支持canvas！
+    </canvas>
+
+    <script>
+        var canvas = document.getElementById('myCanvas');
+
+        if (canvas.getContext) {
+            var ctx = canvas.getContext('2d');
+            ////设置阴影:
+
+            ctx.shadowOffsetX = 10; // 设置水平位移
+            ctx.shadowOffsetY = 10; // 设置垂直位移
+            ctx.shadowBlur = 5; // 设置模糊度
+            ctx.shadowColor = "rgba(0,0,0,0.5)"; // 设置阴影颜色
+
+            ctx.fillStyle = "green";
+            ctx.fillRect(10, 10, 200, 100);//画矩形
+        }
+
+
+    </script>
+</body>
+</html>

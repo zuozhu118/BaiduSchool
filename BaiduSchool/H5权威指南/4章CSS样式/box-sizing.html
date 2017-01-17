@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>box-sizing</title>
+    <style>
+        *
+        {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        .simple
+        {
+            width: 500px;
+            margin: 20px auto;
+            /*-webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;*/
+            border: 1px solid red;
+        }
+
+        .fancy
+        {
+            width: 500px;
+            margin: 20px auto;
+            padding: 50px;
+            /*border: solid blue 10px;*/
+            /*-webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;*/
+            border: 6px solid green;
+        }
+    </style>
+</head>
+<body>
+    <div class="simple">
+        我们现在一样大小了
+    </div>
+    <div class="fancy">
+        万岁！
+    </div>
+</body>
+</html>

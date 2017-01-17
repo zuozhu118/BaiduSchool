@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>z-index属性</title>
+    <style>
+        .box-set {
+            background: #e8eae9;
+            height: 160px;
+            position: relative;
+        }
+
+        .box {
+            background: #8ec63f;
+            border: 3px solid #f7941d;
+            height: 80px;
+            position: absolute;
+            width: 100px;
+        }
+
+        .box-1 {
+            left: 10px;
+            top: 10px;
+        }
+
+        .box-2 {
+            bottom: 10px;
+            left: 70px;
+            z-index: 3;
+        }
+
+        .box-3 {
+            left: 130px;
+            top: 10px;
+            z-index: 2;
+        }
+
+        .box-4 {
+            bottom: 10px;
+            left: 190px;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="box-set">
+        <div class="box box-1">
+            Box 1
+        </div>
+        <div class="box box-2">
+            Box 2
+        </div>
+        <div class="box box-3">
+            Box 3
+        </div>
+        <div class="box box-4">
+            Box 4
+        </div>
+    </div>
+
+</body>
+</html>
+
+
+<!--
+给元素设置“z-index”属性，
+首先要在这个元素上设置了“position”属性值为“relatvie”、“absolute”或者“fixed”之一。
+同样的，你要使用盒子位移属性，
+你也要先确认元素设置了“positions”属性值为“relative”、“absolute”或者“fixed”之一。
+
+-->

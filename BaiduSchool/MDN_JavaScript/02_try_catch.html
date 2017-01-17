@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>try_catch语句</title>
+</head>
+<body>
+    <script>
+        //getMonthName(13);
+        //function getMonthName(mo) {
+        //    mo = mo - 1; // Adjust month number for array index (1 = Jan, 12 = Dec)
+        //    var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul",
+        //                  "Aug", "Sep", "Oct", "Nov", "Dec"];
+        //    try { 
+        //        if (months[mo]) {
+        //            alert('try中的代码');
+        //        }
+        //        else {
+        //            throw "InvalidMonthNo"; //throw keyword is used here
+        //        }
+        //    }
+        //    catch (e) {
+        //        monthName = "unknown";
+        //        alert('抛出异常' + monthName);
+        //    }
+        //    finally {
+        //        alert('finally中内容');
+        //    }
+        //}
+       
+        //------------------------try--catch--finally中的返回值-----------------
+        function f() {
+            try {
+                console.log(0);
+                return 0;
+                throw "bogus";
+               
+            } catch (e) {
+                console.log(1);
+                return 1;
+                console.log(2);
+            } finally {
+                console.log(3);
+                return 2;
+                console.log(4);
+            }
+
+            console.log(5);
+        }
+        var result = f();
+        console.log(result+'f函数的返回值');
+    </script>
+</body>
+</html>

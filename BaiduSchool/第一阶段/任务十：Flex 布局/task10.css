@@ -1,0 +1,68 @@
+﻿*
+{
+    margin: 0;
+    padding: 0px;
+}
+
+body
+{
+    padding: 20px;
+}
+
+.flex
+{
+    border: 1px solid;
+    padding: 20px;
+    display:flex; /*flex：将对象作为弹性伸缩盒显示。（伸缩盒最新版本;*/
+    align-items: center; /*伸缩项目的外边距盒在该行的侧轴上居中放置。*/
+    justify-content: space-between; /*space-between：伸缩项目会平均地分布在行里*/
+    flex-flow: row wrap; /*从左向右排列，伸缩容器多行显示*/
+}
+    .flex div
+    {
+          width: 150px;
+    }
+    .flex div:not(.flex_item4)
+    {
+        border: 1px solid red;
+        margin-bottom: 20px;
+    }
+
+.flex_item1
+{
+    height: 120px;
+    flex:1;
+}
+
+.flex_item2
+{
+    height: 100px;
+     flex:6;
+}
+
+.flex_item3
+{
+    height: 40px;
+     flex:1;
+}
+
+.flex_item4
+{
+    border: 1px solid blue;
+    margin-bottom: 20px;
+    height: 200px;
+     flex:1;
+}
+
+@media (max-width: 640px) /*当屏幕宽度小于等于640px时*/
+{
+    .flex
+    {
+        align-items: stretch; /*stretch（默认值）：伸缩项目拉伸填充整个伸缩容器。*/ 
+    }
+
+    .flex_item4
+    {
+        order: -1;
+    }
+}

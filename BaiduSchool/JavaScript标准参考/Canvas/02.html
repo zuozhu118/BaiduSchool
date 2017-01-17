@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>myCanvas2</title>
+</head>
+<body>
+     <canvas id="myCanvas" >您的浏览器不支持canvas！
+    </canvas>
+
+    <script>
+        var canvas = document.getElementById('myCanvas');
+
+        if (canvas.getContext) {
+            var ctx = canvas.getContext('2d');
+            //绘制文本：----------------------------------------
+            //设置字体样式
+            ctx.font = "Bold 20px Arial";
+            // 设置对齐方式
+            ctx.textAlign = "left";
+            // 设置填充颜色
+            ctx.fillStyle = "green";
+            // 设置字体内容，以及在画布上的位置
+            ctx.fillText("World!", 10, 50);
+            // 绘制空心字
+            ctx.strokeText("Hello!", 10, 100);
+        }
+
+    </script>
+</body>
+</html>

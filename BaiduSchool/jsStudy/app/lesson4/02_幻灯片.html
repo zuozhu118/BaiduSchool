@@ -1,0 +1,258 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>自动播放——幻灯片效果</title>
+    <style>
+        body,
+        div,
+        ul,
+        li
+        {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul
+        {
+            list-style-type: none;
+        }
+
+        body
+        {
+            background: #ccc;
+            text-align: center;
+            font: 12px/20px Arial;
+        }
+
+        #box
+        {
+            position: relative;
+            width: 492px;
+            height: 172px;
+            background: #fff;
+            border-radius: 5px;
+            border: 8px solid #fff;
+            margin: 10px auto;
+        }
+
+            #box .list
+            {
+                position: relative;
+                width: 490px;
+                height: 170px;
+                overflow: hidden;
+                border: 1px solid #ccc;
+            }
+
+                #box .list li
+                {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 490px;
+                    height: 170px;
+                    opacity: 0;
+                    filter: alpha(opacity=0);
+                }
+
+                    #box .list li.current
+                    {
+                        opacity: 1;
+                        filter: alpha(opacity=100);
+                    }
+
+            #box .count
+            {
+                position: absolute;
+                right: 0;
+                bottom: 5px;
+            }
+
+                #box .count li
+                {
+                    color: #fff;
+                    float: left;
+                    width: 20px;
+                    height: 20px;
+                    cursor: pointer;
+                    margin-right: 5px;
+                    overflow: hidden;
+                    background: #F90;
+                    opacity: 0.7;
+                    filter: alpha(opacity=70);
+                    border-radius: 20px;
+                }
+
+                    #box .count li.current
+                    {
+                        color: #fff;
+                        opacity: 1;
+                        filter: alpha(opacity=100); /*opacity和filter都是设置透明度的，一个意思*/
+                        font-weight: 700;
+                        /*background: #f60;*/
+                        background:red;
+                    }
+
+        #tmp
+        {
+            width: 100px;
+            height: 100px;
+            background: red;
+            position: absolute;
+        }
+    </style>
+    <!--大漠-->
+    <!--<script type="text/javascript">
+        //filter:设置或检索对象所应用的滤镜效果。
+        //Alpha：设置透明度
+        //Alpha(Opacity=?);
+        //Opacity：透明度级别，范围是0-100，0代表完全透明，100代表完全不透明。
+
+        window.onload = function () {
+            var oBox = document.getElementById("box");
+            var aUl = document.getElementsByTagName("ul");
+            var aImg = aUl[0].getElementsByTagName("li"); //所有图片li;
+            var aNum = aUl[1].getElementsByTagName("li"); //所有数字li;
+            var timer = play = null;
+            var i = index = 0;
+            //切换按钮
+            for (i = 0; i < aNum.length; i++) {
+                aNum[i].index = i;
+                aNum[i].onmouseover = function () {
+                    show(this.index)
+                }
+            }
+            //鼠标划过关闭定时器
+            oBox.onmouseover = function () {
+                clearInterval(play)
+            };
+            //鼠标离开启动自动播放
+            oBox.onmouseout = function () {
+                autoPlay()
+            };
+            //自动播放函数
+            function autoPlay() {
+                play = setInterval(function () {
+                    index++;
+                    index >= aImg.length && (index = 0);
+                    show(index);
+                }, 3000);
+            }
+            autoPlay(); //应用
+            //图片切换, 淡入淡出效果
+            function show(a) { //参数a表示当前li的索引：index;
+                index = a;
+                var alpha = 0;
+                for (i = 0; i < aNum.length; i++) aNum[i].className = "";
+                aNum[index].className = "current";
+                clearInterval(timer);
+                for (i = 0; i < aImg.length; i++) {
+                    aImg[i].style.opacity = 0;
+                    aImg[i].style.filter = "alpha(opacity=0)";
+                }
+                timer = setInterval(function () {
+                    alpha += 2;
+                    alpha > 100 && (alpha = 100);
+                    aImg[index].style.opacity = alpha / 100;
+                    aImg[index].style.filter = "alpha(opacity = " + alpha + ")";
+                    alpha == 100 && clearInterval(timer)
+                }, 30);//设置opacity的值在30毫秒内，从0加到100；
+            }
+        };
+    </script>-->
+
+
+    <!--二般人  2016/10/13-->
+    <script>
+        //设置图片自动播放：
+        window.onload = function () {
+            var oBox = document.getElementById("box");
+            var aUl = document.getElementsByTagName("ul");
+            var aImg = aUl[0].getElementsByTagName("li"); //所有图片li;
+            var aNum = aUl[1].getElementsByTagName("li"); //所有数字li;
+            var index = 0;
+
+            //show方法在20毫秒内将索引为index的li的opcity从0加到1；
+            function show(index) {
+                var alpha = 0;
+                var timer = setInterval(function () {
+                    alpha += 2;
+                    alpha > 100 && (alpha = 100);
+
+                    for (var i = 0; i < aImg.length; i++) {
+                        aImg[i].style.opacity = 0;//设置所有图片li的透明度为0；
+
+                        aNum[i].className = ""; //设置所有的数字的类为""
+                    }
+                    //设置当前数字的背景样式：添加current类；
+                    aNum[index].className = "current";
+
+                    //设置当前的li的透明度为1；
+                    aImg[index].style.opacity = alpha / 100;
+                    aImg[index].style.filter = "alpha(opacity = " + alpha + ")";
+                    alpha == 100 && clearInterval(timer)
+                }, 20);
+            }
+
+            //每隔3秒钟变换一张图片：
+            autoPlay();
+            var play;
+            function autoPlay() {
+                play = setInterval(function () {
+                    index++;
+                    index >= aImg.length && (index = 0);
+
+                    show(index);
+                   
+                }, 3000);
+            }
+
+            //鼠标划过关闭定时器
+            oBox.onmouseover = function () {
+                clearInterval(play)
+            };
+            //鼠标离开启动自动播放
+            oBox.onmouseout = function () {
+                autoPlay()
+            };
+
+
+            //给每个数字li注册鼠标悬浮事件：
+            for (var j = 0; j < aNum.length; j++) {
+                aNum[j].index = j;
+                aNum[j].onmouseover = function () {
+                    index = this.index;
+                    show(index);
+                }
+            }
+        };
+    </script>
+</head>
+
+<body>
+    <div id="box">
+        <ul class="list">
+            <li class="current">
+                <img src="../../../src/images/01.jpg" width="490" height="170" /></li>
+            <li>
+                <img src="../../../src/images/02.jpg" width="490" height="170" /></li>
+            <li>
+                <img src="../../../src/images/03.jpg" width="490" height="170" /></li>
+            <li>
+                <img src="../../../src/images/04.jpg" width="490" height="170" /></li>
+            <li>
+                <img src="../../../src/images/05.jpg" width="490" height="170" /></li>
+        </ul>
+        <ul class="count">
+            <li class="current">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+    </div>
+</body>
+
+</html>

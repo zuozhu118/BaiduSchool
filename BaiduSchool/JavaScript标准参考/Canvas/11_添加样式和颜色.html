@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>11添加样式和颜色</title>
+</head>
+<body>
+    <canvas id="myCanvas" style="border:1px solid;">您的浏览器不支持canvas！
+    </canvas>
+    <script>
+        var canvas = document.getElementById('myCanvas');
+        if (canvas.getContext) {
+            var ctx = canvas.getContext('2d');
+            for (var i = 0; i < 6; i++) {
+                for (var j = 0; j < 5; j++) {
+                    //设置填充色-------
+                    ctx.fillStyle = 'rgb(' + Math.floor(255 - 42.5 * i) + ',' +Math.floor(255 - 42.5 * j) + ',0)';
+
+                    ctx.fillRect(i * 25, j * 25, 25, 25);
+                }
+            }
+        }
+
+    </script>
+</body>
+</html>

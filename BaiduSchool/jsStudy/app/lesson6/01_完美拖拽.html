@@ -1,0 +1,227 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>完美拖拽</title>
+    <style type="text/css">
+    html,
+    body {
+        overflow: hidden;
+    }
+    
+    body,
+    div,
+    h2,
+    p {
+        margin: 0;
+        padding: 0;
+    }
+    
+    body {
+        color: #fff;
+        background: #ccc;
+        font: 12px/2 Arial;
+    }
+    
+    p {
+        padding: 0 10px;
+        margin-top: 10px;
+    }
+    
+    span {
+        color: #ff0;
+        padding-left: 5px;
+    }
+    
+    #box {
+        position: absolute;
+        width: 300px;
+        height: 150px;
+        background: #333;
+        border: 2px solid #ccc;
+        top: 50%;
+        left: 50%;
+        margin: -75px 0 0 -150px;
+    }
+    
+    #box h2 {
+        height: 25px;
+        cursor: move;
+        background: #222;
+        border-bottom: 2px solid #ccc;
+        text-align: right;
+        padding: 0 10px;
+    }
+    
+    #box h2 a {
+        color: #fff;
+        font: 12px/25px Arial;
+        text-decoration: none;
+        outline: none;
+    }
+    </style>
+    <!--大漠-->
+    <!--<script type="text/javascript">
+        window.onload = function () {
+            var oBox = document.getElementById("box");
+            var oH2 = oBox.getElementsByTagName("h2")[0];
+            var oA = oBox.getElementsByTagName("a")[0];
+            var aSpan = oBox.getElementsByTagName("span");
+            var disX = disY = 0;
+            var bDrag = false;
+            var aPos = [{
+
+         //HTMLElement.offsetLeft,返回当前元素左上角相对于 HTMLElement.offsetParent 节点的左边界偏移的像素值。
+                x: oBox.offsetLeft,
+                y: oBox.offsetTop
+            }]
+            //鼠标按下, 激活拖拽
+            oH2.onmousedown = function (event) {
+                var event = event || window.event;
+                bDrag = true;
+
+                //clientX 事件属性返回当事件被触发时鼠标指针向对于浏览器页面的水平坐标。
+                disX = event.clientX - oBox.offsetLeft;//disX表示oBox的左上角顶点向右移动的距离；
+                disY = event.clientY - oBox.offsetTop;
+                aPos.push({
+                    x: oBox.offsetLeft,
+                    y: oBox.offsetTop
+                })
+
+        //例子：element.setCapture(retargetToElement);
+        //retargetToElement如果被设置为 true, 所有事件被直接定向到这个元素; 
+        //如果是 false, 事件也可以在这个元素的子元素上触发。 
+
+                this.setCapture && this.setCapture();//当鼠标按下移动时，重定向到oH2这个元素对象；
+                return false
+            };
+            //拖拽开始:onmousemove 属性在鼠标指针移动到元素上时触发:
+            //给整个浏览器窗口注册一个鼠标悬浮事件
+            document.onmousemove = function (event) {
+                //alert("onmousemove事件触发");
+                if (bDrag == false) return;
+                //bDrag是在用户按下oH2时才为true;
+
+                var event = event || window.event;
+
+                var iL = event.clientX - disX;//iL:oBox.offsetLeft;
+                var iT = event.clientY - disY;
+                //Element.clientWidth 属性表示元素的内部宽度，以像素计。该属性包括内边距，但不包括垂直滚动条（如果有的话）、边框和外边距。
+                //offsetWidth :获取当前对象的宽度；
+                var maxL = document.documentElement.clientWidth - oBox.offsetWidth;//maxL表示可移动区域的最大宽度；
+                //alert(document.documentElement.clientWidth);
+                //alert(oBox.offsetWidth);
+                var maxT = document.documentElement.clientHeight - oBox.offsetHeight;
+                iL = iL < 0 ? 0 : iL;
+                iL = iL > maxL ? maxL : iL;
+                iT = iT < 0 ? 0 : iT;
+                iT = iT > maxT ? maxT : iT;
+                oBox.style.marginTop = oBox.style.marginLeft = 0;
+                oBox.style.left = iL + "px";
+                oBox.style.top = iT + "px";
+                aPos.push({
+                    x: iL,
+                    y: iT
+                })
+                status();
+                //return false
+            };
+            //鼠标释放, 结束拖拽
+            document.onmouseup = window.onblur = oH2.onlosecapture = function () {
+                bDrag = false;
+                oH2.releaseCapture && oH2.releaseCapture();
+                status()
+            };
+            //回放拖动轨迹
+            oA.onclick = function () {
+                if (aPos.length == 1) return;
+                var timer = setInterval(function () {
+                    var oPos = aPos.pop();//pop() 方法用于删除并返回数组的最后一个元素;
+                    oPos ? (oBox.style.left = oPos.x + "px", oBox.style.top = oPos.y + "px", status()) : clearInterval(timer)
+                }, 30);
+                this.focus = false; //去除链接虚线
+                return false
+            };
+            //阻止冒泡
+            oA.onmousedown = function (event) {
+                (event || window.event).cancelBubble = true
+            };
+            //监听状态函数
+            function status() {
+                aSpan[0].innerHTML = bDrag;
+                aSpan[1].innerHTML = oBox.offsetTop;
+                aSpan[2].innerHTML = oBox.offsetLeft
+            }
+            //初始调用
+            status()
+        };
+    </script>-->
+
+
+    <!--二般人  2016/10/16-->
+    <script>
+            window.onload = function () {
+                var oBox = document.getElementById("box");
+                var oH2 = oBox.getElementsByTagName("h2")[0];
+                var oA = oBox.getElementsByTagName("a")[0];
+                var aSpan = oBox.getElementsByTagName("span");
+                var bDrag = false;//是否拖动
+                var disX = disY = 0;
+                //给oH2注册一个鼠标按下事件：
+                oH2.onmousedown = function (event) {
+                    bDrag = true;
+                    var event = event || window.event;
+                    //alert("oH2的鼠标按下事件");
+                    disX = event.clientX - oBox.offsetLeft;//oBox跟随鼠标向左移动的距离；
+                    disY = event.clientY - oBox.offsetTop;
+                    //alert("oH2的鼠标按下事件:  "+BoxOffsetleft);
+                    this.setCapture && this.setCapture();//当鼠标按下移动时，重定向到oH2这个元素对象；
+                };
+
+                oH2.onmouseup = function () {
+                    bDrag = false;
+                    oH2.releaseCapture && oH2.releaseCapture();
+                }
+
+                //给整个窗体注册一个鼠标移动事件：
+                document.documentElement.onmousemove = function (event) {
+                    if (bDrag==false) {
+                        return false;
+                    }
+                    var event = event || window.event;
+                
+                    var iL = event.clientX - disX;//iL:oBox.offsetLeft;
+                    var iT = event.clientY - disY;
+                    //Element.clientWidth 属性表示元素的内部宽度，以像素计。该属性包括内边距，但不包括垂直滚动条（如果有的话）、边框和外边距。
+                    //offsetWidth :获取当前对象的宽度；
+                    var maxL = document.documentElement.clientWidth - oBox.offsetWidth;//maxL表示可移动区域的最大宽度；
+                    //alert(document.documentElement.clientWidth);
+                    var maxT = document.documentElement.clientHeight - oBox.offsetHeight;
+                    iL = iL < 0 ? 0 : iL;
+                    iL = iL > maxL ? maxL : iL;
+                    iT = iT < 0 ? 0 : iT;
+                    iT = iT > maxT ? maxT : iT;
+                    oBox.style.marginTop = oBox.style.marginLeft = 0;
+
+                    oBox.style.left = iL + "px";
+                    oBox.style.top = iT + "px";
+                    //alert("窗体移动事件");
+                    return false;
+                };
+
+
+            };
+        </script>
+</head>
+
+<body>
+    <div id="box">
+        <h2><a href="javascript:;">点击回放拖动轨迹</a></h2>
+        <p><strong>Drag:</strong><span></span></p>
+        <p><strong>offsetTop:</strong><span></span></p>
+        <p><strong>offsetLeft:</strong><span></span></p>
+    </div>
+</body>
+
+</html>

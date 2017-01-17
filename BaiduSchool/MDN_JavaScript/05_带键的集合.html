@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+</head>
+<body>
+    <script>
+        //一个Map对象就是一个简单的键值对映射集合，可以按照数据插入时的顺序遍历所有的元素。
+        var myMap = new Map();
+        myMap.set('a', 'AA');
+        myMap.set(true,'真');
+        myMap.set(13,"十三");
+        for (let [key, value] of myMap) {
+            console.log(key + " goes " + value);
+        }
+
+            //Set对象是一组值的集合，这些值是不重复的，可以按照添加顺序来遍历。
+            var mySet = new Set();
+            mySet.add(1);
+            mySet.add("some text");
+            mySet.add("foo");
+            for (let item of mySet){ 
+                console.log(item);
+        }
+        
+
+            //数组（Array）和集合（Set）的转换:
+            //1、可以使用Array.from或扩充操作符来完成集合到数组的转换。（将mySet集合转为一个Array数组）：
+
+           var arryset=[...mySet] //或者:Array.from(mySet);
+           for (let arr of arryset) {
+                console.log(arr+'   ,新数组');
+        }
+
+            //2、同样，集合的构造器接受数组作为参数，可以完成从数组到集合的转换。（将arr2数组转为一个新的Set集合）：、
+            var arr2=[21,22,21,"hello",false,undefined,NaN];
+            for (let arr of arr2) {
+                console.log(arr+'   ,新数组2');
+             }
+            var mySet2 = new Set(arr2);//将arr2数组转为一个新的Set集合
+            for (let set2 of mySet2) {
+            
+                console.log(set2+'   ,新集合2');
+                //可以看到set2集合中是不存在重复的值21的
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>绘制文本</title>
+</head>
+<body>
+    <canvas id="myCanvas" style="border: 1px solid;">您的浏览器不支持canvas！
+    </canvas>
+    <script>
+        var canvas = document.getElementById('myCanvas');
+        if (canvas.getContext) {
+            var ctx = canvas.getContext('2d');
+            ctx.font = "18px serif";
+
+            //fillText(text, x, y [, maxWidth]),在指定的(x,y)位置填充指定的文本，绘制的最大宽度是可选的.
+            ctx.fillStyle = "red";
+            ctx.fillText("Hello world", 10, 50);
+
+            //strokeText(text, x, y [, maxWidth]),在指定的(x,y)位置绘制文本边框，绘制的最大宽度是可选的.
+            ctx.strokeText('Hello China', 10, 100);
+
+        }
+    </script>
+</body>
+</html>

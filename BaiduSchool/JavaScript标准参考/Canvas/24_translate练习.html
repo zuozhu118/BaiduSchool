@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>translate</title>
+</head>
+<body>
+    <canvas id="Canvas" width="300" height="300"  style="border:1px solid;" >您的浏览器不支持canvas！
+    </canvas>
+    <script>
+        //translate 方法，它用来移动 canvas 和它的原点到一个不同的位置。
+        //translate(x, y)。x 是左右偏移量，y 是上下偏移量
+
+        var ctx = document.getElementById('Canvas').getContext('2d');
+        for (var i = 0; i < 3; i++) {
+            for (var j = 0; j < 3; j++) {
+                ctx.save();//save保存的时候，此时的原点是canvas的原点；
+                ctx.strokeStyle = 'red';
+                ctx.translate(j * 60, i * 60);//如果没有restore,那么每一次的原点都是当前的前一个的原点，而不是canvas的原点；（可以调试去掉restore看结果）
+                ctx.strokeRect(0, 0, 20, 20);
+                ctx.restore();
+               
+            }
+
+        }
+    </script>
+</body>
+</html>

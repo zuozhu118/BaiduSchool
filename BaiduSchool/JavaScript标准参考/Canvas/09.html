@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>贝塞尔曲线</title>
+</head>
+<body>
+    <canvas id="myCanvas" style="border:1px solid;">您的浏览器不支持canvas！
+    </canvas>
+    <script>    
+        var canvas = document.getElementById('myCanvas');
+        if (canvas.getContext) {
+
+            var ctx = canvas.getContext('2d');
+            //---------------------贝尔赛曲线
+            ctx.beginPath();
+            ctx.moveTo(75, 25);
+            //quadraticCurveTo(cp1x, cp1y, x, y)
+            //cp1x, cp1y为控制点，x, y为结束点。
+            ctx.quadraticCurveTo(25, 25, 25, 62.5);
+            //ctx.quadraticCurveTo(25, 100, 50, 100);
+            //ctx.quadraticCurveTo(50, 120, 30, 125);
+            //ctx.quadraticCurveTo(60, 120, 65, 100);
+            //ctx.quadraticCurveTo(125, 100, 125, 62.5);
+            //ctx.quadraticCurveTo(125, 25, 75, 25);
+            ctx.strokeStyle = "red";
+            ctx.stroke();
+
+
+            //-----------------二次贝塞尔曲线
+            ctx.beginPath();
+            ctx.moveTo(175, 140);
+            //ctx.bezierCurveTo(75, 37, 70, 25, 50, 25);
+            ctx.bezierCurveTo(20, 25, 20, 62.5, 20, 62.5);
+            //ctx.bezierCurveTo(20, 80, 40, 102, 75, 120);
+            //ctx.bezierCurveTo(110, 102, 130, 80, 130, 62.5);
+            //ctx.bezierCurveTo(130, 62.5, 130, 25, 100, 25);
+            //ctx.bezierCurveTo(85, 25, 75, 37, 75, 40);
+            ctx.strokeStyle = "green";
+            ctx.stroke();
+
+            ctx.beginPath();
+            ctx.moveTo(100, 100);
+            ctx.rect(60, 60, 30, 20);
+            ctx.strokeStyle = "blue";
+            ctx.stroke();
+           
+        }
+    </script>
+</body>
+</html>

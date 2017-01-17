@@ -1,0 +1,101 @@
+﻿body
+{
+    padding: 0px;
+    margin: 0px;
+}
+
+.container
+{
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    /*box-sizing属性可以为三个值之一：content-box（default），border-box，padding-box*/
+    /*content-box，border和padding不计算入width之内
+
+padding-box，padding计算入width内
+
+border-box，border和padding计算入width之内，其实就是怪异模式了~*/
+}
+
+.row
+{
+    /*border: 1px solid green;*/
+    overflow: hidden;
+}
+
+    .row > div
+    {
+        padding: 10px;
+        float: left;
+        box-sizing: border-box;
+    }
+
+.inner
+{
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    border: 1px solid;
+}
+
+@media (min-width:769px) /*当屏幕宽度大于768px时*/
+{
+    .col-md-4
+    {
+        width: 33.333333%;
+    }
+
+    .col-md-3
+    {
+        width: 25%;
+    }
+
+    .col-md-6
+    {
+        width: 50%;
+    }
+
+    .col-md-1
+    {
+        width: 8.333333%;
+    }
+
+    .col-md-2
+    {
+        width: 16.666667%;
+    }
+}
+
+
+
+@media (max-width: 768px) /*当屏幕宽度小于等于768px时*/
+{
+    /*.col-sm-2{
+		width: calc( 16.666% - 20px );
+        calc()方法，可以进行宽度和高度，border等的计算；
+	}*/
+    .col-sm-2
+    {
+        width: 16.666667%;
+    }
+
+    .col-sm-3
+    {
+        width:25%;
+    }
+
+    .col-sm-6
+    {
+        width: 50%;
+    }
+
+    .col-sm-8
+    {
+        width: 66.666667%;
+    }
+
+    .col-sm-12
+    {
+        width: 100%;
+    }
+}

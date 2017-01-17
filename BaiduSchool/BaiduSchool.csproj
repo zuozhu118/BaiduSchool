@@ -1,0 +1,751 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7F759033-A7FF-46EA-839B-271E4973EBA4}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BaiduSchool</RootNamespace>
+    <AssemblyName>BaiduSchool</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AJAX\AJAX_Request.html" />
+    <Content Include="AJAX\AJAX处理XML响应.html" />
+    <Content Include="AJAX\test.html" />
+    <Content Include="AJAX\test.xml" />
+    <Content Include="Chongqing\chongqing.css" />
+    <Content Include="Chongqing\Chongqing.html" />
+    <Content Include="ECMAScript 6 入门\字符串的扩展\模板字符串.html" />
+    <Content Include="H5权威指南\1~3章HTML\01_HTML标签属性.html" />
+    <Content Include="H5权威指南\4章CSS样式\box-sizing.html" />
+    <Content Include="H5权威指南\4章CSS样式\column多列布局.html" />
+    <Content Include="H5权威指南\4章CSS样式\CSS中继承.html" />
+    <Content Include="H5权威指南\4章CSS样式\CSS重要样式.html" />
+    <Content Include="H5权威指南\4章CSS样式\MaxWidth.html" />
+    <Content Include="H5权威指南\7章HTML文档\style元素的media属性.html" />
+    <Content Include="images\1.jpg" />
+    <Content Include="images\10.jpg" />
+    <Content Include="images\11.jpg" />
+    <Content Include="images\2.jpg" />
+    <Content Include="images\3.jpg" />
+    <Content Include="images\4.jpg" />
+    <Content Include="images\5.jpg" />
+    <Content Include="images\6.jpg" />
+    <Content Include="images\7.jpg" />
+    <Content Include="images\8.jpg" />
+    <Content Include="images\9.jpg" />
+    <Content Include="images\baidu-logo.png" />
+    <Content Include="images\bear-article.png" />
+    <Content Include="images\bear-avatar.png" />
+    <Content Include="images\bear-column-1.png" />
+    <Content Include="images\bear-column-2.png" />
+    <Content Include="images\bear-column-3.png" />
+    <Content Include="images\bear-figure.png" />
+    <Content Include="images\doc.svg" />
+    <Content Include="images\img_one.jpg" />
+    <Content Include="images\img_three.jpg" />
+    <Content Include="images\img_two.jpg" />
+    <Content Include="images\member1.jpg" />
+    <Content Include="images\member2.jpg" />
+    <Content Include="images\member3.jpg" />
+    <Content Include="images\member4.jpg" />
+    <Content Include="images\pic.jpg" />
+    <Content Include="images\pic3.png" />
+    <Content Include="images\shanghai_lupu_bridge.jpg" />
+    <Content Include="JavaScript标准参考\Canvas\01.html" />
+    <Content Include="JavaScript标准参考\Canvas\02.html" />
+    <Content Include="JavaScript标准参考\Canvas\03.html" />
+    <Content Include="JavaScript标准参考\Canvas\04.html" />
+    <Content Include="JavaScript标准参考\Canvas\05.html" />
+    <Content Include="JavaScript标准参考\Canvas\06.html" />
+    <Content Include="JavaScript标准参考\Canvas\07.html" />
+    <Content Include="JavaScript标准参考\Canvas\09.html" />
+    <Content Include="JavaScript标准参考\Canvas\08_跳动小球.html" />
+    <Content Include="JavaScript标准参考\Canvas\10_Path2D对象.html" />
+    <Content Include="JavaScript标准参考\Canvas\11_添加样式和颜色.html" />
+    <Content Include="JavaScript标准参考\Canvas\12_渐变色.html" />
+    <Content Include="JavaScript标准参考\Canvas\13_Canvas填充.html" />
+    <Content Include="JavaScript标准参考\Canvas\14_绘制文本.html" />
+    <Content Include="JavaScript标准参考\Canvas\15_绘制图片.html" />
+    <Content Include="JavaScript标准参考\Canvas\16_切割图片.html" />
+    <Content Include="JavaScript标准参考\Canvas\17_Saving and restoring.html" />
+    <Content Include="JavaScript标准参考\Canvas\18_变形.html" />
+    <Content Include="JavaScript标准参考\Canvas\19_合成与剪裁.html" />
+    <Content Include="JavaScript标准参考\Canvas\20_基本动画_太阳系.html" />
+    <Content Include="JavaScript标准参考\Canvas\21_动画时钟.html" />
+    <Content Include="JavaScript标准参考\Canvas\22_循环全景照片.html" />
+    <Content Include="JavaScript标准参考\Canvas\23_高级动画.html" />
+    <Content Include="JavaScript标准参考\Canvas\24_translate练习.html" />
+    <Content Include="JavaScript标准参考\Canvas\25_rotate练习.html" />
+    <Content Include="JavaScript标准参考\Canvas\canvas倒计时\canvas七巧板.html" />
+    <Content Include="JavaScript标准参考\Canvas\canvas倒计时\countdown.js" />
+    <Content Include="JavaScript标准参考\Canvas\canvas倒计时\digit.js" />
+    <Content Include="JavaScript标准参考\Canvas\canvas倒计时\index.html" />
+    <Content Include="JavaScript标准参考\SVG\01.html" />
+    <Content Include="jquery-1.12.0.min.js" />
+    <Content Include="jsStudy\app\exercise\01.html" />
+    <Content Include="jsStudy\app\exercise\03.html" />
+    <Content Include="jsStudy\app\exercise\04.html" />
+    <Content Include="jsStudy\app\exercise\05.html" />
+    <Content Include="jsStudy\app\exercise\06.html" />
+    <Content Include="jsStudy\app\exercise\07.html" />
+    <Content Include="jsStudy\app\exercise\07_树形菜单.html" />
+    <Content Include="jsStudy\app\lesson1\01.html" />
+    <Content Include="jsStudy\app\lesson1\02.html" />
+    <Content Include="jsStudy\app\lesson1\03.html" />
+    <Content Include="jsStudy\app\lesson1\04.html" />
+    <Content Include="jsStudy\app\lesson1\06.html" />
+    <Content Include="jsStudy\app\lesson2\01.html" />
+    <Content Include="jsStudy\app\lesson2\03.html" />
+    <Content Include="jsStudy\app\lesson2\04_莫泰效果.html" />
+    <Content Include="jsStudy\app\lesson2\05.html" />
+    <Content Include="jsStudy\app\lesson2\06.html" />
+    <Content Include="jsStudy\app\lesson2\07.html" />
+    <Content Include="jsStudy\app\lesson2\08.html" />
+    <Content Include="jsStudy\app\lesson2\09.html" />
+    <Content Include="jsStudy\app\lesson2\10.html" />
+    <Content Include="jsStudy\app\lesson2\11.html" />
+    <Content Include="jsStudy\app\lesson2\12.html" />
+    <Content Include="jsStudy\app\lesson3\01.html" />
+    <Content Include="jsStudy\app\lesson3\02.html" />
+    <Content Include="jsStudy\app\lesson3\03.html" />
+    <Content Include="jsStudy\app\lesson3\04.html" />
+    <Content Include="jsStudy\app\lesson3\05.html" />
+    <Content Include="jsStudy\app\lesson3\06.html" />
+    <Content Include="jsStudy\app\lesson3\07_计算器.html" />
+    <Content Include="jsStudy\app\lesson3\08_简易时钟.html" />
+    <Content Include="jsStudy\app\lesson3\09.html" />
+    <Content Include="jsStudy\app\lesson4\01.html" />
+    <Content Include="jsStudy\app\lesson4\02_幻灯片.html" />
+    <Content Include="jsStudy\app\lesson4\03.html" />
+    <Content Include="jsStudy\app\lesson4\04.html" />
+    <Content Include="jsStudy\app\lesson4\05.html" />
+    <Content Include="jsStudy\app\lesson4\06.html" />
+    <Content Include="jsStudy\app\lesson4\07.html" />
+    <Content Include="jsStudy\app\lesson4\08_封装事件.html" />
+    <Content Include="jsStudy\app\lesson4\09.html" />
+    <Content Include="jsStudy\app\lesson5\01_模拟select控件.html" />
+    <Content Include="jsStudy\app\lesson5\02.html" />
+    <Content Include="jsStudy\app\lesson5\03_显示按下的键盘码.html" />
+    <Content Include="jsStudy\app\lesson5\04.html" />
+    <Content Include="jsStudy\app\lesson5\05.html" />
+    <Content Include="jsStudy\app\lesson5\06.html" />
+    <Content Include="jsStudy\app\lesson5\07.html" />
+    <Content Include="jsStudy\app\lesson5\08.html" />
+    <Content Include="jsStudy\app\lesson6\01_完美拖拽.html" />
+    <Content Include="jsStudy\app\lesson6\02_仿腾讯微博.html" />
+    <Content Include="jsStudy\app\lesson6\03.html" />
+    <Content Include="jsStudy\app\lesson7\01.html" />
+    <Content Include="jsStudy\app\lesson7\02_Loading效果的图片.html" />
+    <Content Include="jsStudy\app\lesson7\03_按轨迹移动.html" />
+    <Content Include="jsStudy\app\lesson8\01.html" />
+    <Content Include="jsStudy\app\lesson8\02.html" />
+    <Content Include="jsStudy\app\lesson8\03.html" />
+    <Content Include="jsStudy\app\lesson8\04.html" />
+    <Content Include="jsStudy\app\lesson9\01.html" />
+    <Content Include="jsStudy\app\lesson9\02.html" />
+    <Content Include="jsStudy\app\lesson9\03.html" />
+    <Content Include="jsStudy\app\webChat\01.html" />
+    <Content Include="MDN_JavaScript\01_对象字面量.html" />
+    <Content Include="MDN_JavaScript\02_try_catch.html" />
+    <Content Include="MDN_JavaScript\03_函数.html" />
+    <Content Include="MDN_JavaScript\04_数组对象.html" />
+    <Content Include="MDN_JavaScript\05_带键的集合.html" />
+    <Content Include="MDN_JavaScript\06_使用对象.html" />
+    <Content Include="MDN_JavaScript\08_getter.html" />
+    <Content Include="MDN_JavaScript\09_setter.html" />
+    <Content Include="MDN_JavaScript\10_迭代器和生成器.html" />
+    <Content Include="src\css\bar.png" />
+    <Content Include="src\css\bar_line.gif" />
+    <Content Include="src\css\black.css" />
+    <Content Include="src\css\calendar.css" />
+    <Content Include="src\css\eyeglass.css" />
+    <Content Include="src\css\green.css" />
+    <Content Include="src\css\red.css" />
+    <Content Include="src\css\style.css" />
+    <Content Include="src\html\exercise\01.html" />
+    <Content Include="src\html\exercise\02.html" />
+    <Content Include="src\html\exercise\03.html" />
+    <Content Include="src\html\exercise\04.html" />
+    <Content Include="src\html\exercise\05.html" />
+    <Content Include="src\html\exercise\06.html" />
+    <Content Include="src\html\exercise\07.html" />
+    <Content Include="src\html\index.html" />
+    <Content Include="src\html\lesson10\01.html" />
+    <Content Include="src\html\lesson10\02.html" />
+    <Content Include="src\html\lesson10\03.html" />
+    <Content Include="src\html\lesson10\04.html" />
+    <Content Include="src\html\lesson10\05.html" />
+    <Content Include="src\html\lesson10\06.html" />
+    <Content Include="src\html\lesson10\07.html" />
+    <Content Include="src\html\lesson10\08.html" />
+    <Content Include="src\html\lesson10\09.html" />
+    <Content Include="src\html\lesson10\10.html" />
+    <Content Include="src\html\lesson10\11.html" />
+    <Content Include="src\html\lesson10\12.html" />
+    <Content Include="src\html\lesson10\13.html" />
+    <Content Include="src\html\lesson10\14.html" />
+    <Content Include="src\html\lesson11\01.html" />
+    <Content Include="src\html\lesson11\02.html" />
+    <Content Include="src\html\lesson11\03.html" />
+    <Content Include="src\html\lesson11\04.html" />
+    <Content Include="src\html\lesson1\01.html" />
+    <Content Include="src\html\lesson1\02.html" />
+    <Content Include="src\html\lesson1\03.html" />
+    <Content Include="src\html\lesson1\04.html" />
+    <Content Include="src\html\lesson1\05.html" />
+    <Content Include="src\html\lesson1\06.html" />
+    <Content Include="src\html\lesson2\01.html" />
+    <Content Include="src\html\lesson2\02.html" />
+    <Content Include="src\html\lesson2\03.html" />
+    <Content Include="src\html\lesson2\04.html" />
+    <Content Include="src\html\lesson2\05.html" />
+    <Content Include="src\html\lesson2\06.html" />
+    <Content Include="src\html\lesson2\07.html" />
+    <Content Include="src\html\lesson2\08.html" />
+    <Content Include="src\html\lesson2\09.html" />
+    <Content Include="src\html\lesson2\10.html" />
+    <Content Include="src\html\lesson2\11.html" />
+    <Content Include="src\html\lesson2\12.html" />
+    <Content Include="src\html\lesson3\01.html" />
+    <Content Include="src\html\lesson3\02.html" />
+    <Content Include="src\html\lesson3\03.html" />
+    <Content Include="src\html\lesson3\04.html" />
+    <Content Include="src\html\lesson3\05.html" />
+    <Content Include="src\html\lesson3\06.html" />
+    <Content Include="src\html\lesson3\07.html" />
+    <Content Include="src\html\lesson3\08.html" />
+    <Content Include="src\html\lesson3\09.html" />
+    <Content Include="src\html\lesson4\01.html" />
+    <Content Include="src\html\lesson4\02.html" />
+    <Content Include="src\html\lesson4\03.html" />
+    <Content Include="src\html\lesson4\04.html" />
+    <Content Include="src\html\lesson4\05.html" />
+    <Content Include="src\html\lesson4\06.html" />
+    <Content Include="src\html\lesson4\07.html" />
+    <Content Include="src\html\lesson4\08.html" />
+    <Content Include="src\html\lesson4\09.html" />
+    <Content Include="src\html\lesson5\01.html" />
+    <Content Include="src\html\lesson5\02.html" />
+    <Content Include="src\html\lesson5\03.html" />
+    <Content Include="src\html\lesson5\04.html" />
+    <Content Include="src\html\lesson5\05.html" />
+    <Content Include="src\html\lesson5\06.html" />
+    <Content Include="src\html\lesson5\07.html" />
+    <Content Include="src\html\lesson5\08.html" />
+    <Content Include="src\html\lesson6\01.html" />
+    <Content Include="src\html\lesson6\02.html" />
+    <Content Include="src\html\lesson6\03.html" />
+    <Content Include="src\html\lesson7\01.html" />
+    <Content Include="src\html\lesson7\02.html" />
+    <Content Include="src\html\lesson7\03.html" />
+    <Content Include="src\html\lesson8\01.html" />
+    <Content Include="src\html\lesson8\02.html" />
+    <Content Include="src\html\lesson8\03.html" />
+    <Content Include="src\html\lesson8\04.html" />
+    <Content Include="src\html\lesson9\01.html" />
+    <Content Include="src\html\lesson9\02.html" />
+    <Content Include="src\html\lesson9\03.html" />
+    <Content Include="src\html\webChat\01.html" />
+    <Content Include="src\images\01.jpg" />
+    <Content Include="src\images\02.jpg" />
+    <Content Include="src\images\03.jpg" />
+    <Content Include="src\images\04.jpg" />
+    <Content Include="src\images\05.jpg" />
+    <Content Include="src\images\1.gif" />
+    <Content Include="src\images\1.jpeg" />
+    <Content Include="src\images\1.jpg" />
+    <Content Include="src\images\10.jpg" />
+    <Content Include="src\images\2.gif" />
+    <Content Include="src\images\2.jpeg" />
+    <Content Include="src\images\2.jpg" />
+    <Content Include="src\images\21.jpg" />
+    <Content Include="src\images\22.jpg" />
+    <Content Include="src\images\3.jpeg" />
+    <Content Include="src\images\3.jpg" />
+    <Content Include="src\images\4.jpeg" />
+    <Content Include="src\images\4.jpg" />
+    <Content Include="src\images\5.jpeg" />
+    <Content Include="src\images\5.jpg" />
+    <Content Include="src\images\6.jpg" />
+    <Content Include="src\images\7.jpg" />
+    <Content Include="src\images\8.jpg" />
+    <Content Include="src\images\9.jpg" />
+    <Content Include="src\images\arrow.jpg" />
+    <Content Include="src\images\arrow.png" />
+    <Content Include="src\images\bar01.gif" />
+    <Content Include="src\images\bar02.gif" />
+    <Content Include="src\images\bar03.gif" />
+    <Content Include="src\images\bar1.jpg" />
+    <Content Include="src\images\bar10.jpg" />
+    <Content Include="src\images\bar2.jpg" />
+    <Content Include="src\images\bar3.jpg" />
+    <Content Include="src\images\bar4.jpg" />
+    <Content Include="src\images\bar5.jpg" />
+    <Content Include="src\images\bar6.jpg" />
+    <Content Include="src\images\bar7.jpg" />
+    <Content Include="src\images\bar8.jpg" />
+    <Content Include="src\images\bar9.jpg" />
+    <Content Include="src\images\bar_line.gif" />
+    <Content Include="src\images\bg.jpg" />
+    <Content Include="src\images\big_1.jpg" />
+    <Content Include="src\images\big_10.jpg" />
+    <Content Include="src\images\big_11.jpg" />
+    <Content Include="src\images\big_2.jpg" />
+    <Content Include="src\images\big_3.jpg" />
+    <Content Include="src\images\big_4.jpg" />
+    <Content Include="src\images\big_5.jpg" />
+    <Content Include="src\images\big_6.jpg" />
+    <Content Include="src\images\big_7.jpg" />
+    <Content Include="src\images\big_8.jpg" />
+    <Content Include="src\images\big_9.jpg" />
+    <Content Include="src\images\boxBG.jpg" />
+    <Content Include="src\images\btn-1.png" />
+    <Content Include="src\images\btn-slider.png" />
+    <Content Include="src\images\btn-weibo.png" />
+    <Content Include="src\images\btn.png" />
+    <Content Include="src\images\cfbanner.jpg" />
+    <Content Include="src\images\cfbg.jpg" />
+    <Content Include="src\images\cfnav.jpg" />
+    <Content Include="src\images\cfsubbg.jpg" />
+    <Content Include="src\images\face.gif" />
+    <Content Include="src\images\face1.gif" />
+    <Content Include="src\images\face2.gif" />
+    <Content Include="src\images\face3.gif" />
+    <Content Include="src\images\face4.gif" />
+    <Content Include="src\images\face5.gif" />
+    <Content Include="src\images\face6.gif" />
+    <Content Include="src\images\face7.gif" />
+    <Content Include="src\images\face8.gif" />
+    <Content Include="src\images\girl0\1.png" />
+    <Content Include="src\images\girl0\10.png" />
+    <Content Include="src\images\girl0\11.png" />
+    <Content Include="src\images\girl0\12.png" />
+    <Content Include="src\images\girl0\13.png" />
+    <Content Include="src\images\girl0\14.png" />
+    <Content Include="src\images\girl0\15.png" />
+    <Content Include="src\images\girl0\2.png" />
+    <Content Include="src\images\girl0\3.png" />
+    <Content Include="src\images\girl0\4.png" />
+    <Content Include="src\images\girl0\5.png" />
+    <Content Include="src\images\girl0\6.png" />
+    <Content Include="src\images\girl0\7.png" />
+    <Content Include="src\images\girl0\8.png" />
+    <Content Include="src\images\girl0\9.png" />
+    <Content Include="src\images\girl0\bg.png" />
+    <Content Include="src\images\girl0\girl.jpg" />
+    <Content Include="src\images\girl1\1.png" />
+    <Content Include="src\images\girl1\10.png" />
+    <Content Include="src\images\girl1\11.png" />
+    <Content Include="src\images\girl1\12.png" />
+    <Content Include="src\images\girl1\13.png" />
+    <Content Include="src\images\girl1\14.png" />
+    <Content Include="src\images\girl1\15.png" />
+    <Content Include="src\images\girl1\2.png" />
+    <Content Include="src\images\girl1\3.png" />
+    <Content Include="src\images\girl1\4.png" />
+    <Content Include="src\images\girl1\5.png" />
+    <Content Include="src\images\girl1\6.png" />
+    <Content Include="src\images\girl1\7.png" />
+    <Content Include="src\images\girl1\8.png" />
+    <Content Include="src\images\girl1\9.png" />
+    <Content Include="src\images\girl1\bg.png" />
+    <Content Include="src\images\girl1\girl.jpg" />
+    <Content Include="src\images\girl2\1.png" />
+    <Content Include="src\images\girl2\10.png" />
+    <Content Include="src\images\girl2\11.png" />
+    <Content Include="src\images\girl2\12.png" />
+    <Content Include="src\images\girl2\13.png" />
+    <Content Include="src\images\girl2\14.png" />
+    <Content Include="src\images\girl2\15.png" />
+    <Content Include="src\images\girl2\2.png" />
+    <Content Include="src\images\girl2\3.png" />
+    <Content Include="src\images\girl2\4.png" />
+    <Content Include="src\images\girl2\5.png" />
+    <Content Include="src\images\girl2\6.png" />
+    <Content Include="src\images\girl2\7.png" />
+    <Content Include="src\images\girl2\8.png" />
+    <Content Include="src\images\girl2\9.png" />
+    <Content Include="src\images\girl2\bg.png" />
+    <Content Include="src\images\girl2\girl.jpg" />
+    <Content Include="src\images\glassbar.png" />
+    <Content Include="src\images\glassbig_1.jpg" />
+    <Content Include="src\images\glassbig_10.jpg" />
+    <Content Include="src\images\glassbig_11.jpg" />
+    <Content Include="src\images\glassbig_12.jpg" />
+    <Content Include="src\images\glassbig_2.jpg" />
+    <Content Include="src\images\glassbig_3.jpg" />
+    <Content Include="src\images\glassbig_4.jpg" />
+    <Content Include="src\images\glassbig_5.jpg" />
+    <Content Include="src\images\glassbig_6.jpg" />
+    <Content Include="src\images\glassbig_7.jpg" />
+    <Content Include="src\images\glassbig_8.jpg" />
+    <Content Include="src\images\glassbig_9.jpg" />
+    <Content Include="src\images\glassbtn.gif" />
+    <Content Include="src\images\glassico.gif" />
+    <Content Include="src\images\glassloading.gif" />
+    <Content Include="src\images\glasssearch.png" />
+    <Content Include="src\images\glass_1.jpg" />
+    <Content Include="src\images\glass_10.jpg" />
+    <Content Include="src\images\glass_11.jpg" />
+    <Content Include="src\images\glass_12.jpg" />
+    <Content Include="src\images\glass_2.jpg" />
+    <Content Include="src\images\glass_3.jpg" />
+    <Content Include="src\images\glass_4.jpg" />
+    <Content Include="src\images\glass_5.jpg" />
+    <Content Include="src\images\glass_6.jpg" />
+    <Content Include="src\images\glass_7.jpg" />
+    <Content Include="src\images\glass_8.jpg" />
+    <Content Include="src\images\glass_9.jpg" />
+    <Content Include="src\images\google1.jpg" />
+    <Content Include="src\images\google10.jpg" />
+    <Content Include="src\images\google10_.jpg" />
+    <Content Include="src\images\google11.jpg" />
+    <Content Include="src\images\google11_.jpg" />
+    <Content Include="src\images\google1_.jpg" />
+    <Content Include="src\images\google2.jpg" />
+    <Content Include="src\images\google2_.jpg" />
+    <Content Include="src\images\google3.jpg" />
+    <Content Include="src\images\google3_.jpg" />
+    <Content Include="src\images\google4.jpg" />
+    <Content Include="src\images\google4_.jpg" />
+    <Content Include="src\images\google5.jpg" />
+    <Content Include="src\images\google5_.jpg" />
+    <Content Include="src\images\google6.jpg" />
+    <Content Include="src\images\google6_.jpg" />
+    <Content Include="src\images\google7.jpg" />
+    <Content Include="src\images\google7_.jpg" />
+    <Content Include="src\images\google8.jpg" />
+    <Content Include="src\images\google8_.jpg" />
+    <Content Include="src\images\google9.jpg" />
+    <Content Include="src\images\google9_.jpg" />
+    <Content Include="src\images\home_bg.jpg" />
+    <Content Include="src\images\ibm-bg.png" />
+    <Content Include="src\images\ibm-logo.png" />
+    <Content Include="src\images\ico.gif" />
+    <Content Include="src\images\ico.png" />
+    <Content Include="src\images\icon.gif" />
+    <Content Include="src\images\icon_arr.gif" />
+    <Content Include="src\images\icon_btn.gif" />
+    <Content Include="src\images\icon_num.gif" />
+    <Content Include="src\images\input.png" />
+    <Content Include="src\images\inputBg.jpg" />
+    <Content Include="src\images\inputBG.png" />
+    <Content Include="src\images\iphone-btn.jpg" />
+    <Content Include="src\images\iphone1.jpg" />
+    <Content Include="src\images\iphone2.jpg" />
+    <Content Include="src\images\lazy1.jpg" />
+    <Content Include="src\images\lazy10.jpg" />
+    <Content Include="src\images\lazy11.jpg" />
+    <Content Include="src\images\lazy12.jpg" />
+    <Content Include="src\images\lazy13.jpg" />
+    <Content Include="src\images\lazy14.jpg" />
+    <Content Include="src\images\lazy15.jpg" />
+    <Content Include="src\images\lazy16.jpg" />
+    <Content Include="src\images\lazy17.jpg" />
+    <Content Include="src\images\lazy18.jpg" />
+    <Content Include="src\images\lazy19.jpg" />
+    <Content Include="src\images\lazy2.jpg" />
+    <Content Include="src\images\lazy20.jpg" />
+    <Content Include="src\images\lazy21.jpg" />
+    <Content Include="src\images\lazy22.jpg" />
+    <Content Include="src\images\lazy23.jpg" />
+    <Content Include="src\images\lazy24.jpg" />
+    <Content Include="src\images\lazy25.jpg" />
+    <Content Include="src\images\lazy26.jpg" />
+    <Content Include="src\images\lazy27.jpg" />
+    <Content Include="src\images\lazy28.jpg" />
+    <Content Include="src\images\lazy29.jpg" />
+    <Content Include="src\images\lazy3.jpg" />
+    <Content Include="src\images\lazy30.jpg" />
+    <Content Include="src\images\lazy4.jpg" />
+    <Content Include="src\images\lazy5.jpg" />
+    <Content Include="src\images\lazy6.jpg" />
+    <Content Include="src\images\lazy7.jpg" />
+    <Content Include="src\images\lazy8.jpg" />
+    <Content Include="src\images\lazy9.jpg" />
+    <Content Include="src\images\lazynone.gif" />
+    <Content Include="src\images\line.png" />
+    <Content Include="src\images\loading.gif" />
+    <Content Include="src\images\mac1.png" />
+    <Content Include="src\images\mac2.png" />
+    <Content Include="src\images\mac3.png" />
+    <Content Include="src\images\mac4.png" />
+    <Content Include="src\images\mac5.png" />
+    <Content Include="src\images\mac6.png" />
+    <Content Include="src\images\mac7.png" />
+    <Content Include="src\images\mac8.png" />
+    <Content Include="src\images\model_1.jpg" />
+    <Content Include="src\images\model_10.jpg" />
+    <Content Include="src\images\model_11.jpg" />
+    <Content Include="src\images\model_12.jpg" />
+    <Content Include="src\images\model_2.jpg" />
+    <Content Include="src\images\model_3.jpg" />
+    <Content Include="src\images\model_4.jpg" />
+    <Content Include="src\images\model_5.jpg" />
+    <Content Include="src\images\model_6.jpg" />
+    <Content Include="src\images\model_7.jpg" />
+    <Content Include="src\images\model_8.jpg" />
+    <Content Include="src\images\model_9.jpg" />
+    <Content Include="src\images\nav_bg.png" />
+    <Content Include="src\images\photo0.jpg" />
+    <Content Include="src\images\photo1.jpg" />
+    <Content Include="src\images\photo10.jpg" />
+    <Content Include="src\images\photo11.jpg" />
+    <Content Include="src\images\photo12.jpg" />
+    <Content Include="src\images\photo13.jpg" />
+    <Content Include="src\images\photo14.jpg" />
+    <Content Include="src\images\photo15.jpg" />
+    <Content Include="src\images\photo16.jpg" />
+    <Content Include="src\images\photo17.jpg" />
+    <Content Include="src\images\photo18.jpg" />
+    <Content Include="src\images\photo19.jpg" />
+    <Content Include="src\images\photo2.jpg" />
+    <Content Include="src\images\photo3.jpg" />
+    <Content Include="src\images\photo4.jpg" />
+    <Content Include="src\images\photo5.jpg" />
+    <Content Include="src\images\photo6.jpg" />
+    <Content Include="src\images\photo7.jpg" />
+    <Content Include="src\images\photo8.jpg" />
+    <Content Include="src\images\photo9.jpg" />
+    <Content Include="src\images\photoico.gif" />
+    <Content Include="src\images\pt1.png" />
+    <Content Include="src\images\pt10.png" />
+    <Content Include="src\images\ptbg.png" />
+    <Content Include="src\images\resize.png" />
+    <Content Include="src\images\search.jpg" />
+    <Content Include="src\images\shirt_1.jpg" />
+    <Content Include="src\images\shirt_1_big.jpg" />
+    <Content Include="src\images\shirt_2.jpg" />
+    <Content Include="src\images\shirt_2_big.jpg" />
+    <Content Include="src\images\shirt_3.jpg" />
+    <Content Include="src\images\shirt_3_big.jpg" />
+    <Content Include="src\images\shirt_4.jpg" />
+    <Content Include="src\images\shirt_4_big.jpg" />
+    <Content Include="src\images\small_1.jpg" />
+    <Content Include="src\images\small_10.jpg" />
+    <Content Include="src\images\small_11.jpg" />
+    <Content Include="src\images\small_2.jpg" />
+    <Content Include="src\images\small_3.jpg" />
+    <Content Include="src\images\small_4.jpg" />
+    <Content Include="src\images\small_5.jpg" />
+    <Content Include="src\images\small_6.jpg" />
+    <Content Include="src\images\small_7.jpg" />
+    <Content Include="src\images\small_8.jpg" />
+    <Content Include="src\images\small_9.jpg" />
+    <Content Include="src\images\star.png" />
+    <Content Include="src\images\TextArea-1.gif" />
+    <Content Include="src\images\TextArea.gif" />
+    <Content Include="src\images\tlbg.jpg" />
+    <Content Include="src\images\tool.png" />
+    <Content Include="src\images\vatar1.jpeg" />
+    <Content Include="src\images\vatar2.jpeg" />
+    <Content Include="src\images\WellForm.gif" />
+    <Content Include="src\images\youa1.jpg" />
+    <Content Include="src\images\youa2.jpg" />
+    <Content Include="src\images\youa3.jpg" />
+    <Content Include="src\images\youa4.jpg" />
+    <Content Include="src\images\youa5.jpg" />
+    <Content Include="src\images\youa6.jpg" />
+    <Content Include="src\images\youa7.jpg" />
+    <Content Include="src\images\youa8.jpg" />
+    <Content Include="src\images\youabg.png" />
+    <Content Include="src\images\youastar.png" />
+    <Content Include="src\images\yxs1.jpg" />
+    <Content Include="src\images\yxs10.jpg" />
+    <Content Include="src\images\yxs11.jpg" />
+    <Content Include="src\images\yxs12.jpg" />
+    <Content Include="src\images\yxs13.jpg" />
+    <Content Include="src\images\yxs14.jpg" />
+    <Content Include="src\images\yxs2.jpg" />
+    <Content Include="src\images\yxs3.jpg" />
+    <Content Include="src\images\yxs4.jpg" />
+    <Content Include="src\images\yxs5.jpg" />
+    <Content Include="src\images\yxs6.jpg" />
+    <Content Include="src\images\yxs7.jpg" />
+    <Content Include="src\images\yxs8.jpg" />
+    <Content Include="src\images\yxs9.jpg" />
+    <Content Include="src\images\yxsbtn.png" />
+    <Content Include="React\build\browser.min.js" />
+    <Content Include="React\build\react-dom-server.js" />
+    <Content Include="React\build\react-dom-server.min.js" />
+    <Content Include="React\build\react-dom.js" />
+    <Content Include="React\build\react-dom.min.js" />
+    <Content Include="React\build\react-with-addons.js" />
+    <Content Include="React\build\react-with-addons.min.js" />
+    <Content Include="React\build\react.js" />
+    <Content Include="React\build\react.min.js" />
+    <Content Include="React\demo02.html" />
+    <Content Include="React\demo03.html" />
+    <Content Include="React\demo04.html" />
+    <Content Include="React\demo05.html" />
+    <Content Include="React\demo1.html" />
+    <Content Include="React\React草稿.html" />
+    <Content Include="src\js\calendar.js" />
+    <Content Include="src\js\CreateList.js" />
+    <Content Include="src\js\eyeglass.js" />
+    <Content Include="src\js\google.js" />
+    <Content Include="W3CPlus\01_Grid布局.html" />
+    <Content Include="W3CPlus\02_rgba函数.html" />
+    <Content Include="Web.config" />
+    <Content Include="你不知道的Javascript\Promise example\index.html" />
+    <Content Include="你不知道的Javascript\Promise example\myLittleVader.jpg" />
+    <Content Include="你不知道的Javascript\this关键字\JS中this.js" />
+    <Content Include="你不知道的Javascript\YoudontknowJS.html" />
+    <Content Include="你不知道的Javascript\YouDontKnowJS.js" />
+    <Content Include="幻灯片\Banner.html" />
+    <Content Include="幻灯片\img\banner0.jpg" />
+    <Content Include="幻灯片\img\banner1.jpg" />
+    <Content Include="幻灯片\img\banner2.jpg" />
+    <Content Include="无缝轮播\images\1.jpg" />
+    <Content Include="无缝轮播\images\2.jpg" />
+    <Content Include="无缝轮播\images\3.jpg" />
+    <Content Include="无缝轮播\images\4.jpg" />
+    <Content Include="无缝轮播\js\jquery-1.12.0.min.js" />
+    <Content Include="无缝轮播\loop.html" />
+    <Content Include="测试\a标签取消跳转.js" />
+    <Content Include="测试\a标签的取消默认行为.html" />
+    <Content Include="第一阶段\任务三：三栏式布局\task3.css" />
+    <Content Include="第一阶段\任务三：三栏式布局\三栏三式布局.html" />
+    <Content Include="第一阶段\任务五：零基础HTML及CSS编码（二）\task5.css" />
+    <Content Include="第一阶段\任务五：零基础HTML及CSS编码（二）\零基础HTML及CSS编码（二）.html" />
+    <Content Include="第一阶段\任务八：响应式网格（栅格化）布局\task8.css" />
+    <Content Include="第一阶段\任务八：响应式网格（栅格化）布局\响应式网格（栅格化）布局.html" />
+    <Content Include="第一阶段\任务十一：移动Web页面布局实践\task11.css" />
+    <Content Include="第一阶段\任务十一：移动Web页面布局实践\移动Web页面布局实践.html" />
+    <Content Include="第一阶段\任务十二：学习CSS 3的新特性\task12.css" />
+    <Content Include="第一阶段\任务十二：学习CSS 3的新特性\学习CSS 3的新特性.html" />
+    <Content Include="第一阶段\任务十：Flex 布局\Flex使用示例\flex设置百分比宽度.html" />
+    <Content Include="第一阶段\任务十：Flex 布局\Flex布局.html" />
+    <Content Include="第一阶段\任务十：Flex 布局\Flex使用示例\六个子元素布局.html" />
+    <Content Include="第一阶段\任务十：Flex 布局\Flex使用示例\水平竖直居中.html" />
+    <Content Include="第一阶段\任务十：Flex 布局\task10.css" />
+    <Content Include="第一阶段\任务四：定位和居中问题\task4.css" />
+    <Content Include="第一阶段\任务四：定位和居中问题\task4教程\position属性.html" />
+    <Content Include="第一阶段\任务四：定位和居中问题\task4教程\float属性.html" />
+    <Content Include="第一阶段\任务四：定位和居中问题\task4教程\z-index属性.html" />
+    <Content Include="第一阶段\任务四：定位和居中问题\定位和垂直居中.html" />
+    <Content Include="第三阶段\任务四十四：多功能相册之瀑布布局\app.js" />
+    <Content Include="第三阶段\任务四十四：多功能相册之瀑布布局\index.html" />
+    <Content Include="第三阶段\任务四十四：多功能相册之瀑布布局\waterfall.css" />
+    <Content Include="第三阶段\任务四十四：多功能相册之瀑布布局\waterfall.js" />
+    <Content Include="第二阶段\任务二十二：JavaScript和树（一）\JavaScript和树（一）.html" />
+    <Content Include="第二阶段\任务二十二：JavaScript和树（一）\task22.css" />
+    <Content Include="第二阶段\任务二十二：JavaScript和树（一）\task22.js" />
+    <Content Include="第二阶段\任务二十二：JavaScript和树（一）\task22副本.html" />
+    <Content Include="第二阶段\任务二十六：行星与飞船（一）\app.js" />
+    <Content Include="第二阶段\任务二十六：行星与飞船（一）\app2.js" />
+    <Content Include="第二阶段\任务二十六：行星与飞船（一）\iconfont-planet.png" />
+    <Content Include="第二阶段\任务二十六：行星与飞船（一）\iconfont-rocket-active.png" />
+    <Content Include="第二阶段\任务二十六：行星与飞船（一）\iconfont-rocket.png" />
+    <Content Include="第二阶段\任务二十六：行星与飞船（一）\index.html" />
+    <Content Include="第二阶段\任务二十六：行星与飞船（一）\index2.html" />
+    <Content Include="第二阶段\任务二十六：行星与飞船（一）\min-iconfont-planet.png" />
+    <Content Include="第二阶段\任务二十六：行星与飞船（一）\min-iconfont-rocket-active.png" />
+    <Content Include="第二阶段\任务二十六：行星与飞船（一）\min-iconfont-rocket.png" />
+    <Content Include="第二阶段\任务二十六：行星与飞船（一）\style.css" />
+    <Content Include="第二阶段\任务二十六：行星与飞船（一）\style2.css" />
+    <Content Include="第二阶段\任务十七：零基础JavaScript编码（五）\task17.css" />
+    <Content Include="第二阶段\任务十七：零基础JavaScript编码（五）\task17.js" />
+    <Content Include="第二阶段\任务十七：零基础JavaScript编码（五）\零基础JavaScript编码（五）.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="src\css\style.css.map" />
+    <Content Include="Chongqing\chong.scss" />
+    <Content Include="MDN_JavaScript\07_Object的defineProperty方法.html" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <Content Include="你不知道的Javascript\Promise example\LICENSE" />
+    <Content Include="你不知道的Javascript\Promise example\README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="你不知道的Javascript\Promise\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:2746/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

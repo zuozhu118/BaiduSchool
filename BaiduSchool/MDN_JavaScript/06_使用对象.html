@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+</head>
+<body>
+    <script>
+        function Car(make, model, year) {
+            this.make = make;
+            this.model = model;
+            this.year = year;
+        }
+        var cars=new Car("Eagle", "Talon TSi", 1993);
+        Car.prototype.color='red';
+        //属性的遍历 :
+        //1、for...in循环遍历对象自身的和继承的可枚举属性（不含Symbol属性）。
+        for (let propertyName in cars) {
+            console.log(propertyName);
+        }
+
+            //2、Object.keys(obj),返回一个数组，包括对象自身的（不含继承的）所有可枚举属性（不含Symbol属性）。
+
+            Object.keys(cars);//["make", "model", "year"]
+
+
+            //3、Object.getOwnPropertyNames(obj)，返回一个数组，包含对象自身的所有属性（不含Symbol属性，但是包括不可枚举属性）。
+            Object.getOwnPropertyNames(cars);
+    </script>
+</body>
+</html>

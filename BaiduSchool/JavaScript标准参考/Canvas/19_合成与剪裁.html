@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>合成与剪裁</title>
+</head>
+<body>
+      <canvas id="myCanvas"  style="border:1px solid;">您的浏览器不支持canvas！
+    </canvas>
+    <script>
+        draw();
+        function draw() {
+            var ctx = document.getElementById('myCanvas').getContext('2d');
+            ctx.fillRect(0,0, 300, 150);
+            ctx.translate(150, 75);//translate移动canvas的原点到（150,75）坐标位置；
+
+            // Create a circular clipping path
+            ctx.beginPath();
+            ctx.arc(0, 0, 60, 0, Math.PI * 2, true);
+            ctx.clip();//裁剪出一个以（0,0）为原点坐标，以60为半径的圆形轨迹，任何超出这个圆范围的图形，都将被隐藏；
+
+            // draw background
+            var lingrad = ctx.createLinearGradient(0, -75, 0, 75);
+            lingrad.addColorStop(0, 'red');
+            lingrad.addColorStop(1, 'green');
+
+            ctx.fillStyle = lingrad;
+            ctx.fillRect(-75, -75,150,150);
+
+             //draw stars
+            for (var j = 1; j < 50; j++) {
+                ctx.save();
+                ctx.fillStyle = '#fff';
+                ctx.translate(75 - Math.floor(Math.random() * 150), 75 - Math.floor(Math.random() * 150));
+                //随机位置绘制 50 大小不一（经过缩放）的颗，当然也只有在裁切路径里面的星星才会绘制出来。
+                drawStar(ctx, Math.floor(Math.random() * 4) + 2);
+                ctx.restore();
+            }
+
+        }
+        function drawStar(ctx, r) {
+            ctx.save();
+            ctx.beginPath()
+            ctx.moveTo(r, 0);
+            for (var i = 0; i < 9; i++) {
+                ctx.rotate(Math.PI / 5);
+                if (i % 2 == 0) {
+                    ctx.lineTo((r / 0.525731) * 0.200811, 0);
+                } else {
+                    ctx.lineTo(r, 0);
+                }
+            }
+            ctx.closePath();
+            ctx.fill();
+            ctx.restore();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+</head>
+<body>
+    <script>
+        //1、函数表达式也可以提供函数名，并且可以用于在函数内部代指其本身，或者在调试器堆栈跟踪中识别该函数：====================================
+        var factorial = function fac(n) { return n < 2 ? 1 : n * fac(n - 1); };
+
+        console.log(factorial(3));
+
+        //2、当将函数作为参数传递给另一个函数时，函数表达式很方便,例如map函数的定义：=========================================================
+        function map(f, a) {
+            var result = [], i; // 创建一个新的数组
+
+            for (i = 0; i < a.length; i++)
+                result[i] = f(a[i]);
+            return result;
+        }
+        map(function (x) { return x * 2; }, [1, 2, 3, 4, 5, 6]);
+
+        //3、递归：===================================================================================================================
+        function loop(x) {
+            if (x >= 10) {
+                return;
+            }
+            else {
+                console.log(x);
+            }
+
+            loop(x + 1); // 递归调用
+        }
+        loop(0);
+
+        function foo(i) {
+            if (i < 0) {
+                return;
+            }
+            console.log('begin:' + i);
+            foo(i - 2);
+            console.log('end:' + i);
+        }
+        foo(3);
+
+        //4、闭包：==================================================================================================================
+        var createPet = function (name) {
+            var sex;
+
+            return {
+                setName: function (newName) {
+                    name = newName;
+                },
+                //将createPet函数的参数name作为中间桥梁来设置值，以及获取值；
+                getName: function () {
+                    return name;
+                },
+
+                getSex: function () {
+                    return sex;
+                },
+
+                setSex: function (newSex) {
+                    if (typeof newSex == "string"
+                      && (newSex.toLowerCase() == "male" || newSex.toLowerCase() == "female")) {
+                        sex = newSex;
+                    }
+                }
+            }
+        }
+
+        var pet = createPet("Vivie");
+        pet.getName();                  // Vivie
+        pet.setName("Oliver");
+        pet.setSex("male");
+        pet.getSex();                   // male
+        pet.getName();                  // Oliver
+
+       
+
+
+        //5、使用arguments对象========================================================================================================
+        //例如，设想有一个用来连接字符串的函数。唯一事先确定的参数是在连接后的字符串中用来分隔各个连接部分的字符（译注：比如例子里的分号“；”）。该函数定义如下：
+        function myConcat(separator) {
+            var result = "";
+            for (var i = 1; i < arguments.length; i++) {
+                //arguments.length表示我们调用myConcat时，实际传入的参数个数；
+                //因为第一个参数是separator,所以i要从1开始；
+                result += arguments[i] + separator;
+            }
+            return result;
+        }
+        var ConcatStr = myConcat('-', "red", "green", "blue", "orange");
+        console.log(ConcatStr);
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>绘制图片</title>
+</head>
+<body>
+     <canvas id="myCanvas" style="border: 1px solid;">您的浏览器不支持canvas！
+    </canvas>
+   <!-- <img id="ImgID" src="../../images/member1.jpg" />-->
+    <script>
+        var canvas = document.getElementById('myCanvas');
+        if (canvas.getContext) {
+            var ctx = canvas.getContext('2d');
+            
+            var img = new Image();// document.getElementById('ImgID');
+            img.onload = function () {
+                canvas.width = img.width;
+                canvas.height = img.height;
+                //drawImage(image, x, y),image 是 image 或者 canvas 对象，x 和 y 是其在目标 canvas 里的起始坐标。 
+                ctx.drawImage(img,0,0);
+                
+                ctx.fillStyle = "red";
+                ctx.font = "18px serif";
+                ctx.fillText("Hello world",6,80);
+            };
+            img.src = "../../images/member1.jpg";
+        }
+    </script>   
+</body>
+</html>

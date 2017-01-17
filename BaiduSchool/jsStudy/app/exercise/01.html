@@ -1,0 +1,182 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Exercise: #1</title>
+    <style type="text/css" media="screen">
+    body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    ul {
+        list-style: none outside none;
+        margin: 2em;
+        display: flex;
+        flex-flow: wrap;
+    }
+    
+    ul li {
+        margin: 5px;
+        padding: 1rem 3rem;
+        border: 1px solid #ccc;
+        background: #fefefe;
+    }
+    
+    ul li.selected {
+        background: #a99;
+        color: #fff;
+    }
+    
+    div {
+        padding: 0 3rem;
+        flex: 1 1 20rem;
+        position: relative;
+    }
+    
+    div span {
+        position: absolute;
+        padding: 20px;
+        background: #f33;
+        color: #fff;
+        border-radius: 100%;
+        line-height: 1;
+        font-family: aria;
+        font-size: 2em;
+        text-align: center;
+        box-sizing: padding-box;
+    }
+    
+    div span:after {
+        content: '';
+        display: inline-block;
+        height: 0;
+        padding-top: 100%;
+        width: 0;
+        vertical-align: middle;
+    }
+    
+    div span.active {
+        /*animation: scale .28s ease both; 大漠*/
+        animation: scale 1s ease both;
+    }
+    
+    @keyframes scale {
+        0% {
+            transform: scale(1, 1); /*scale(x,y) 对元素进行缩放*/
+        }
+        50% {
+            transform: scale(1.8, 1.8);
+        }
+        100% {
+            transform: scale(1, 1);
+        }
+    }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>item1</li>
+        <li>item2</li>
+        <li>item3</li>
+        <li>item4</li>
+        <li>item5</li>
+        <li>item6</li>
+        <li>item7</li>
+        <li>item8</li>
+        <li>item9</li>
+        <li>item10</li>
+        <li>item11</li>
+        <li>item12</li>
+    </ul>
+    <div>你选择的数: <span>0</span></div>
+
+<!--    大漠   ------------------------------------------------------------------------------------------------------------>
+    <!--<script>
+        (function () {
+            //Document.querySelectorAll:返回当前文档中匹配一个特定选择器的所有的元素(使用深度优先，前序遍历规则这样的规则遍历所有文档节点) .返回的对象类型是 NodeList.
+
+            var aLiEle = document.querySelectorAll('li');
+            
+
+            //document.querySelector():返回第一个元素；
+            var numEle = document.querySelector('span');
+            for (var i = 0; i < aLiEle.length; i++) {
+                aLiEle[i].addEventListener('click', function () {
+                    var hasClass = this.classList.contains('selected');
+                    changeClass();
+                    if (!hasClass) {
+                        this.classList.add('selected');
+                        //arr[index] = 1;
+                        calSum();
+                    } else {
+                        this.classList.remove('selected');
+                        // arr[index] = 0;
+                        calSum();
+                    }
+                });
+            }
+            function calSum() {
+                var nums = document.querySelectorAll('li.selected'); //获取所有具有selected类名的li标签；
+                numEle.innerText = nums.length;
+            }
+            var st = null;
+
+            //changeClass给span添加一个active类
+            function changeClass() {
+                clearTimeout(st);
+                var hasClass = numEle.classList.contains('active');
+                numEle.classList.remove('active');
+                setTimeout(function () {
+                    numEle.classList.add('active');
+                }, 10);
+            }
+        })();
+    </script>-->
+
+
+<!--   二般人  2016/10/08---------------------------------------------------------------------------------------------------->
+    <script>    
+        (function () {
+            var liElelist = document.querySelectorAll('li');//获取所有的li标签；
+            var spanEle = document.querySelector('span');
+            for (var i = 0; i < liElelist.length; i++) {
+                liElelist[i].addEventListener('click', function () {
+                    spanEle.removeAttribute('class', 'active');
+
+                    //this表示当前点击到的li;
+                    var hasClass = this.getAttribute('class', 'selected');
+                    //判断同一个li是否重复点击：
+                    if (hasClass) {
+                        this.removeAttribute('class', 'selected');
+                    }
+                    else {
+                        //给当前点击到的li添加一个selected类：
+                        this.setAttribute('class', 'selected');
+                    }
+
+                    setTimeout(function () {
+                        //给span添加active类：
+                        spanEle.setAttribute('class', 'active');
+                    }, 10);
+                    //spanEle.setAttribute('class', 'active');
+                    SelectedLi();
+                });
+                
+            }
+
+        })();
+
+        //统计所有具有selected类名的li的个数，添加到span标签中：
+        function SelectedLi() {
+            var nums = document.querySelectorAll('li.selected').length;
+            document.querySelector('span').innerHTML=nums;
+        }
+    </script>
+</body>
+
+</html>

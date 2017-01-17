@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+</head>
+<body>
+    <canvas id="canvas" width="800" height="800" style="border:1px solid;margin:30px auto; display:block;">
+        当前浏览器不支持Canvas，请更换浏览器后再试
+    </canvas>
+    <script>
+        var canvas = document.getElementById('canvas');
+        var tangram = [
+            { p: [{ x: 0, y: 0 }, { x: 800, y: 0 }, { x: 400, y: 400 }], color: '#caff67' },//表示每一块板的位置，颜色
+
+            { p: [{x:0,y:0}, {x:400,y:400}, {x:0,y:800}], color: '#67becf' },
+            { p: [{ x: 800, y: 0 }, { x: 800, y: 400 }, { x: 600, y: 600 }, {x:600,y:200}], color: '#ef3d61' },
+            { p: [{x:600,y:200}, {x:600,y:600}, {x:400,y:400}], color: '#f9f51a' },
+            { p: [{x:400,y:400}, {x:600,y:600}, {x:400,y:800}], color: '#a594c0' },
+            { p: [{x:200,y:600}, {x:400,y:800}, {x:0,y:800}], color: '#fa8ccc' },
+            { p: [{x:800,y:400}, {x:800,y:800}, {x:400,y:800}], color: '#f6ca29' }
+        ];
+        window.onload = function () {
+            if (canvas.getContext) {
+                var ctx = canvas.getContext('2d');
+                for (var i = 0; i < tangram.length; i++) {
+                    
+                    draw(tangram[i], ctx);
+                }
+                
+            }
+            else {
+                alert('你的浏览器不支持canvas');
+            }
+        };
+
+        function draw(piece, ctx) {
+            ctx.beginPath();
+            ctx.moveTo(piece.p[0].x, piece.p[0].y);
+            for (var i = 1; i < piece.p.length; i++) {
+                ctx.lineTo(piece.p[i].x, piece.p[i].y);
+            }
+            //ctx.closePath();
+            ctx.fillStyle = piece.color;
+            ctx.fill();
+        }
+    </script>
+</body>
+</html>
